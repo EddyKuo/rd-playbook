@@ -1,0 +1,28 @@
+# Claude Code 開發工具
+.claude/
+CLAUDE.md
+
+# 開發規劃文件
+plan.md
+plan.md.test
+plan-*.md
+
+# 本地維護工具(非交付物)
+scripts/
+
+# 編輯器設定
+.obsidian/
+
+# 外部文件（docx、獨立 md 草稿）
+*.docx
+
+# macOS 系統檔
+.DS_Store
+
+# Quarto / mdBook 編譯產出
+_book/
+_site/
+book-dist/
+*.pdf
+*.epub
+.quarto/
