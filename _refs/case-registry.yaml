@@ -1,16 +1,565 @@
-# RD Playbook 案例註冊表
-# 所有章節引用的虛構案例集中於此。公司名、數字皆虛構,技術細節須真實可驗證。
-# 命名:CASE-{DOMAIN}-NNN,DOMAIN 為 FIN/ECM/HCR/SAS/ENR
-
+---
 cases:
-  - id: CASE-SAS-001
-    title: "Brightdesk 的『看起來沒問題』功能"
-    domain: saas
-    chapters: [ch-01]
-    summary: |
-      Brightdesk 是一個多租戶客服 SaaS。一位年輕工程師用 AI 助手快速生出
-      一支「批次匯出工單」功能,本機測試與 demo 都正常,順利上線。三天後,
-      某個大租戶匯出時拖垮了資料庫——AI 生成的查詢在單一租戶資料量大時
-      會一次撈全表(缺少分頁與租戶層級的索引使用)。功能「能跑」,但沒有人
-      在交付前問過「它在最大的租戶身上會怎樣」。用於說明:AI 讓「產出」變快,
-      於是「判斷」成為新的瓶頸與價值所在。
+- id: CASE-SAS-001
+  title: Brightdesk 的『看起來沒問題』功能
+  domain: sas
+  chapters:
+  - ch-01
+  summary: |
+    Brightdesk 是一個多租戶客服 SaaS。一位年輕工程師用 AI 助手快速生出
+    一支「批次匯出工單」功能,本機測試與 demo 都正常,順利上線。三天後,
+    某個大租戶匯出時拖垮了資料庫——AI 生成的查詢在單一租戶資料量大時
+    會一次撈全表(缺少分頁與租戶層級的索引使用)。功能「能跑」,但沒有人
+    在交付前問過「它在最大的租戶身上會怎樣」。用於說明:AI 讓「產出」變快,
+    於是「判斷」成為新的瓶頸與價值所在。
+- id: CASE-ECM-001
+  title: CartHub 活動結算服務折扣雙重計算事件
+  domain: ecm
+  chapters:
+  - ch-02
+  summary: |
+    虛構電商平台 CartHub 的活動結算服務存在折扣金額算錯的 bug。
+    根因是 applyDiscount 被呼叫兩次:一次在 controller 層,一次在
+    saveSettlement 內部。兩次呼叫之間 deductInventory 改變了庫存
+    狀態,導致依賴庫存數量的折扣條件式產生不一致的結果。
+    本案例用於示範「追資料流」方法如何幫助工程師在不讀完全部細節
+    的情況下,定位到問題所在的函式呼叫位置。
+- id: CASE-ECM-014
+  title: Cartly 商品評論功能測試環境污染事件
+  domain: ecm
+  chapters:
+  - ch-14
+  summary: |
+    Cartly 是一家虛構的線上購物平台。工程師小燕為商品評論功能補寫整合測試,
+    在本機全數通過,但推上 CI 後因資料庫殘留前一輪資料,導致評論數量斷言失敗
+    (預期 3 筆,實得 5 筆)。案例用於說明測試環境一致性、Transaction Rollback
+    隔離、Builder 模式與固定隨機種子的實踐。技術棧:TypeScript / Vitest /
+    Prisma / PostgreSQL 17 / Docker Compose。
+- id: CASE-FIN-011
+  title: ClearFund 轉帳手續費計算模組的脆弱測試危機
+  domain: fin
+  chapters:
+  - ch-11
+  summary: |
+    ClearFund 是一家虛構的金融科技公司,提供企業轉帳清算服務。
+    工程師小佳負責手續費計算模組,擁有四十幾支單元測試且全數通過 CI。
+    上線後發現特定費率組合(企業戶且當日累積超門檻)計算錯誤,客戶被多收費。
+    根因有二:一是測試只覆蓋單一費率規則,未覆蓋「費率疊加」的組合場景;
+    二是大量測試驗私有方法呼叫(耦合實作細節),每次重構就觸發大量假警報,
+    破壞了工程師對測試的信任。用於說明:測試數量不等於覆蓋品質;
+    「測行為」而非「測實作」是讓測試真正撐住你的關鍵。
+- id: CASE-FIN-013
+  title: ClearPay 交易授權服務的測試替身漂移事件
+  domain: fin
+  chapters:
+  - ch-13
+  summary: |
+    ClearPay 是一家虛構支付公司,其交易授權服務對接外部風控 API(RiskEvaluation API)。
+    工程師小雅將外部風控 API 完整 mock 後跑出全綠的 CI,但 mock 格式已落後真實 API
+    三個月——對方新增的 risk_code 欄位導致授權邏輯判斷有誤。事件揭示「Mock 漂移」的
+    風險,以及搭配契約測試(Pact)保護外部依賴替身的必要性。授權服務有三個依賴:外部
+    風控 API(Mock + 契約測試)、內部 TransactionRepository(Fake in-memory)、
+    EventPublisher(Spy)——三種依賴用三種不同替身,說明「因材選替身」的判斷框架。
+    公司名、數字皆為虛構;Mock 漂移機制與契約測試方法論為真實可驗證的工程實踐。
+- id: CASE-FIN-012
+  title: ClearPay 支付閘道與帳戶服務的 Pact 契約測試
+  domain: fin
+  chapters:
+  - ch-12
+  summary: |
+    ClearPay 是一家虛構的台灣金融科技公司,旗下有兩個微服務:負責清算的支付
+    閘道服務(Payment Gateway,消費者)和負責帳戶餘額的帳戶服務(Account Service,
+    提供者)。Account Service 工程師將欄位 userId 改名為 user_id,Swagger 文件
+    未同步,Payment Gateway 的 mock 沿用舊欄位名稱,整合環境部署後頁面白屏。
+    引入 Pact 消費者驅動契約測試後,同樣的欄位改動在提供者 CI 的 Provider
+    Verification 步驟即被攔截,不再需要等待整合環境部署後才能發現問題。
+    搭配 Webhook 與 can-i-deploy,使契約治理機制成為 CI 流程的一部分。
+- id: CASE-HCR-005
+  title: Lumivita Health 病患風險評分函式重構
+  domain: hcr
+  chapters:
+  - ch-05
+  summary: |
+    Lumivita Health 電子病歷系統的風險等級計算函式(evaluate_patient_risk),
+    最初以單字母縮寫命名參數(p['b'], p['c'], t, v)並混合加權計算與分類邏輯於同一函式。
+    三個月後接手工程師需花費半天逆向推理業務語意,且無法確認臨床係數來源。
+    本案例用於說明命名、結構、注釋三層次可讀性改善與「可讀性自查卡」的應用。
+    技術細節:Python 3.12,標準函式庫,無外部依賴。
+- id: CASE-HCR-010
+  title: CareLink 病患風險評分模組可測試性重構
+  domain: hcr
+  chapters:
+  - ch-10
+  summary: |
+    CareLink 是一家 HIS(醫院資訊系統)公司。工程師小雯實作病患風險評分模組時,
+    將資料庫查詢、全域設定讀取、系統時間取得全部耦合在單一函式內(calculate_risk_score),
+    導致想補單元測試時需要架設完整環境,耗時一小時仍無法下手。
+    重構後將純計算邏輯抽成 compute_risk_score() 純函式、
+    透過依賴注入替換 PatientRepository 抽象介面與時鐘依賴(clock callable),
+    使得 12 個測試案例在 30 分鐘內完成,且無需連接真實資料庫。
+    本案例用於說明純函式、依賴注入、邊界隔離三種提升可測試性的設計手法。
+- id: CASE-ECM-002
+  title: 佳捷商城 Checkout Team 分支策略重整
+  domain: ecm
+  chapters:
+  - ch-04
+  summary: |
+    虛構電商平台佳捷商城的七人 Checkout Team,在一次七條 feature branch 同時
+    合入 main 的整合事件中,因分支壽命過長(各自活了兩週)、commit 訊息混沌
+    (大量「fix bug」「update」「WIP」),導致大量 merge 衝突與測試紅燈,工程師
+    花整個週末追查根因仍無法收斂。事後以「分支策略決策卡」為工具,對齊採用
+    GitHub Flow、分支壽命上限三天、Conventional Commits 格式(共用模組改動時
+    body 必填)、branch protection rules,整合問題得到顯著改善。本案例用於說明
+    分支壽命與整合複雜度的因果關係,以及 commit 訊息衛生對可追查性的影響。
+- id: CASE-SAS-007
+  title: Nexthread 多租戶授權複雜度失控
+  domain: sas
+  chapters:
+  - ch-07
+  summary: |
+    Nexthread 是一家虛構的多租戶 SaaS 公司,提供客服與協作工具。
+    其計費與權限模組的 can_access_feature 函式,因為多次迭代疊加方案條件
+    (Starter / Pro / Enterprise 三種方案 × admin/member 兩種 role × 多個
+    feature 屬性),圈複雜度累積到約 13,導致工程師小雅修復 bug 時反覆引入
+    新的迴歸問題。本案例用於說明條件巢狀、狀態爆炸與圈複雜度的實際影響,
+    以及提早 return、資料驅動規則(PLAN_RULES 字典)、子函式拆分等降複雜度
+    策略的應用,以及「先補測試、再重構」的安全動手順序。
+- id: CASE-SAS-016
+  title: Kova SaaS 帳單計算模組 Code Review 事件
+  domain: sas
+  chapters:
+  - ch-16
+  summary: |
+    Kova 是一家多租戶 SaaS 計費平台。工程師小琪提交帳單計算模組 PR-247,
+    含 calculateProration() 除以零漏洞與支付失敗靜默吞錯兩個正確性缺陷,
+    以及 computeTotal(data) 命名不清晰的可讀性問題。資深工程師 Darren
+    起初只留下「命名不好、邏輯應該抽出去」等缺乏脈絡的 comment,導致小琪
+    無從下手、後續降低 PR 提交頻率。本案例用於說明三層鏡頭 review 方法論
+    與四要素回饋結構的實際運用,以及如何讓 review 從「找錯的儀式」
+    轉變為「讓整個團隊走得更遠的協作工具」。
+- id: CASE-ECM-006
+  title: CanvasShop 促銷模組命名與邊界重整
+  domain: ecm
+  chapters:
+  - ch-06
+  summary: |
+    品牌電商平台 CanvasShop 的促銷模組,因早期以 handleData() 作為主函式命名,
+    導致後續兩年間多位工程師不斷往同一函式添加邏輯,最終形成超過 200 行、
+    兼做規則選取、金額計算、session 更新與 log 記錄的巨型函式。
+    工程師小婷在接手時因名字不透明而誤判邊界,繼續在錯誤位置新增折扣邏輯。
+    本案例以此過程說明命名精確性與責任邊界之間的關係,並示範如何用
+    「命名與邊界審查卡」系統性地重整既有程式碼的邊界:將 handleData()
+    拆分為 PromotionService、EligibleRuleSelector、DiscountCalculator
+    與 CartSessionWriter 四個各司其職的單元,使每個名字都說清楚自己的責任。
+- id: CASE-ECM-009
+  title: BuyNow 的 processOrder() 技術債危機
+  domain: ecm
+  chapters:
+  - ch-09
+  summary: |
+    BuyNow 是一個經營三年的電商訂單系統。核心方法 processOrder() 累積了
+    五百行程式碼與四層 if-else 巢狀——起初設計合理,但三年來每次新功能都
+    往裡面加一個 else if 分支,設計形狀早已面目全非(Bit-rot 類型技術債)。
+    壓測顯示回應時間每月悄悄上升 8ms,六個月後累積 48ms 接近棄單率上升閾值。
+    某次大促流量衝高時,延遲被放大數十倍,棄單率明顯上升。事後發現工程師
+    早就知道問題,但從未有人把它記錄成可討論的項目,也從未量化過利息。
+    用於說明:技術債的核心問題不是「如何還清」,而是「讓它從感覺變成可討論的帳」——
+    辨識類型、記錄台帳、量化利息、制定計畫,四步缺一不可。
+- id: CASE-ECM-017
+  title: 蝦皮拼拼訂單篩選功能後端 API
+  domain: ecm
+  chapters:
+  - ch-17
+  summary: |
+    虛構電商 SaaS 平台「蝦皮拼拼」的賣家後台訂單篩選功能。
+    工程師小琳將 schema migration、前端介面與後端 API 拆成三個獨立 PR 依序合併,
+    並在後端 API 的 PR 描述中清楚標示 date_range 邊界語義(inclusive start / exclusive end)
+    與 tenant 隔離(seller_id 前置過濾)的不確定點,使 reviewer 能快速聚焦,
+    當天下午完成 review 並合入。
+    技術細節:PostgreSQL 17 複合索引 (seller_id, status, created_at),P99 從 ~380ms 降至 ~40ms。
+- id: CASE-HCR-008
+  title: MedChart 處方簽核模組重構
+  domain: hcr
+  chapters:
+  - ch-08
+  summary: |
+    MedChart 是一家虛構的醫療科技公司,提供電子病歷(EMR)系統。
+    工程師小葦負責維護一個已運行四年的處方簽核(Prescription Validation)模組,
+    核心函式 PrescriptionValidator.validate() 因多次迭代長到 312 行、五層巢狀
+    條件、邊界條件覆蓋率不足。本案例展示如何透過「先補測試驗證安全網有效性、
+    再小步拆分函式」的重構流程,在三週內將核心函式整理為可維護的結構:
+    三個各 35-50 行的子函式加上一個 30 行的入口函式,測試從 8 個增加到 20 個。
+    第十八個藥品類別需求的實作時間從半天縮短為數小時,說明重構所帶來的
+    長期開發速度提升與降低風險的實際效益。
+- id: CASE-FIN-022
+  title: Kronway 支付對帳模組藍綠部署事件
+  domain: fin
+  chapters:
+  - ch-22
+  summary: |
+    Kronway 是一家做企業 SaaS 的虛構公司,旗下支付對帳模組在一次修正精度
+    計算邏輯的版本上線時,因舊格式資料邊界案例(amount_precision 欄位儲存
+    精度 2 vs 4 位元)未在 staging 重現,導致上線後對帳失敗率從 0.3% 跳至
+    14%。由於事先建置了藍綠部署架構,工程師在兩分鐘內切回舊版,損失極小。
+    本案例用於說明藍綠部署的快速回滾價值、兩階段 DB 遷移(Expand-Contract)
+    的必要性,以及金絲雀觀測需要針對老格式使用者做定向路由的重要性。
+    技術細節:Java / JVM warm-up、DB schema 兩階段遷移、慢訊號觀測視窗設計。
+- id: CASE-FIN-024
+  title: FinPulse 帳務狀態欄 VARCHAR→ENUM 零停機升級
+  domain: fin
+  chapters:
+  - ch-24
+  summary: |
+    FinPulse 是一家虛構的支付清算 SaaS 公司,服務數十家中小型支付機構。
+    其 transactions 表的 status 欄需從 VARCHAR(20) 升級為 ENUM 型別,
+    以支援風控新增的細分狀態並防止不合規字串寫入。
+    工程師採用擴張收縮法分三次部署完成,全程零停機零生產錯誤。
+    核心技術:PostgreSQL 17、CREATE TYPE AS ENUM、
+    分批 UPDATE 補填(每批 1000 筆)、雙寫 fallback 讀取邏輯。
+- id: CASE-ECM-032
+  title: CartFlow 結帳頁面效能危機(促銷高峰外部 API 長尾)
+  domain: ecm
+  chapters:
+  - ch-32
+  summary: |
+    虛構電商平台 CartFlow 在雙十一促銷期間,結帳 API p99 從 800ms
+    飆至 3,200ms。工程師初步懷疑為資料庫問題並加入 Redis 快取,
+    但改善有限。透過整體指標掃描(USE 方法)與 OpenTelemetry
+    Distributed Trace,發現主要瓶頸在外部金流 API PayEdge,
+    該 span 在促銷高峰期 p99 達 1,820ms 並佔整體 latency 54.7%。
+    最終以 timeout + 降級策略使 p99 降至 1,280ms,改善 60%。
+    本案例展示「定位前不動手」與 USE 方法三步流程的實際應用。
+- id: CASE-FIN-026
+  title: ClearPay 支付平台清算閘道器事件
+  domain: fin
+  chapters:
+  - ch-26
+  summary: |
+    虛構支付平台 ClearPay 於 2026-03-15 凌晨因外部清算閘道器(TrustGate)
+    計畫外維護,導致支付成功率從 98% 驟降至 61%,p99 延遲飆至 8.2 秒。
+    工程師小涵憑直覺重啟服務,症狀短暫消失後全面復發,暴露了「先動手再動腦」
+    的典型除錯反模式。根因為 ClearPay 未設 circuit breaker,閘道器慢時
+    執行緒池被 30s timeout 請求耗盡,形成雪崩。案例用於示範假設驅動的
+    生產環境除錯流程:邊界觀察 → 假設清單 → 二分定位 → 根因確認 → 緩解與後續。
+- id: CASE-ECM-033
+  title: CartNova 商品詳情頁的快取危機
+  domain: ecm
+  chapters:
+  - ch-33
+  summary: |
+    CartNova 是一個電商平台。工程師小薇在商品詳情頁加入 Redis 快取(統一 TTL 10 分鐘),
+    p99 延遲初期下降明顯。但兩個月後出現兩個問題:促銷活動開始前快取集體過期,
+    大量請求同時打穿到資料庫(快取雪崩);以及庫存更新後用戶仍看到舊庫存數字(TTL
+    期間不一致)。根本原因是快取策略沒有區分靜態欄位與動態欄位,所有欄位統一使用
+    TTL 失效。用於說明:快取不是「加上去就好」的開關,而是需要按欄位一致性要求
+    選擇合適層次與失效策略的設計決策。
+- id: CASE-ECM-034
+  title: ShopStream 萬人搶購並發事故
+  domain: ecm
+  chapters:
+  - ch-34
+  summary: |
+    虛構電商平台 ShopStream 在限時快閃活動中,流量從每秒 80 筆暴增至 1,200 筆,
+    導致訂單服務同時出現三類並發問題:庫存競態條件(庫存變負數)、
+    非同步冪等性缺失(重複訂單)、背壓機制缺失(訊息佇列 OOM 崩潰)。
+    本案例用於說明並發(Concurrency)、非同步(Asynchronous)、背壓(Backpressure)
+    三個概念的差異與對應解法,以及如何在設計階段用「並發安全審查單」提前攔截問題。
+- id: CASE-ECM-031
+  title: CartWave 電商商品列表 API 效能優化
+  domain: ecm
+  chapters:
+  - ch-31
+  summary: |
+    虛構電商平台 CartWave 的訂單管理系統商品列表 API 出現回應時間過慢(p99 = 3.2s)
+    的問題。工程師阿宇在未先量測的情況下直覺優化程式碼三天,效果有限(p99 降至 3.0s)。
+    透過 OpenTelemetry 1.x + Jaeger 剖析後發現真正熱路徑在庫存服務串行 HTTP 呼叫
+    (佔整體 85% 的請求時間)。改為批次呼叫 + Redis 快取後,p99 降至 940ms,
+    改善 71%。用於說明「量測先於優化」的核心原則與效能量測紀錄卡的使用方式。
+- id: CASE-FIN-027
+  title: Finyuan 清算排程偶發超時
+  domain: fin
+  chapters:
+  - ch-27
+  summary: |
+    泛遠金融科技(Finyuan)的清算排程系統在每日凌晨批次作業期間,
+    偶發性超時(10 次中約 2 次),p99 latency 超過 30s 但 average 正常。
+    根因為 PostgreSQL 17 autovacuum 在批次 UPDATE 產生大量 dead tuples 後
+    搶佔 IO 資源,與主查詢競爭 shared_buffers。
+    透過假設驅動的跨層除錯(pg_stat_activity → n_dead_tup → per-table autovacuum 參數調整)
+    在單一工作天內收斂。典型的「症狀在上層、根因在下層」跨層 bug 案例。
+- id: CASE-SAS-039
+  title: Loomify Rate Limit Response Format Migration
+  domain: sas
+  chapters:
+  - ch-39
+  summary: |
+    Loomify 是一家協作文件 SaaS 公司。工程師小韋使用 agentic 開發工具將
+    API rate limit 回應格式從純 HTTP 429 改為帶 retry_after 欄位的 JSON body。
+    Agent 在修改回應格式的同時,意外改動了公共 ErrorResponse struct 的序列化順序,
+    導致依賴欄位順序的外部 SDK 解析失敗,波及 Enterprise 客戶。
+    本案例用以說明 agentic 任務中「影響邊界未定義」與「無人類在環觸發點」的風險。
+- id: CASE-SAS-018
+  title: Flowcast 帳單計費模組:跨月分攤邏輯的結對決策
+  domain: sas
+  chapters:
+  - ch-18
+  summary: |
+    Flowcast 是一家多租戶 SaaS 公司。工程師小云在獨立開發帳單計費模組時,
+    因缺乏第二視角,在 PR 才被發現跨月升降方案的邊界情境未處理。
+    透過與同事阿澤的半日結對 session,提前在設計階段釐清邊界場景,
+    輸出的邊界情境清單後來成為 QA 測試案例的主要來源。
+    案例展示「決策成本高 + 不確定性高」作為結對時機判準的具體應用,
+    以及駕駛/導航者分工讓第二雙眼睛在最關鍵時刻出現的機制。
+- id: CASE-SAS-036
+  title: Nova Spend 費用管理平台 AI 輔助開發重整
+  domain: sas
+  chapters:
+  - ch-36
+  summary: |
+    Nova Spend 是一家多租戶 SaaS 費用管理平台,引入 AI 輔助編碼(GitHub Copilot +
+    內部自建的 Claude 3.7 Sonnet 代理)後開發速度大幅提升,sprint story points 完成率
+    從 68% 拉到 91%。但三個月後,企業大客戶(約 14 萬筆費用紀錄)執行年度報表匯出時,
+    觸發 N+1 查詢問題,DB 連線池被拖光,造成全平台服務中斷 4 分鐘。
+    事故根因是 AI 生成的程式碼在 PR review 時缺乏「最大負載下的判斷」——
+    程式碼語法正確、兩位 reviewer 通過,但沒有人問「14 萬筆下這段會怎樣」。
+    重整後採用 AI 輔助編碼 context 設定卡,明確分離 generate 與 judge 兩個工作流節點,
+    並以 cursor-based 分批查詢(每批 1,000 筆,Streaming response)取代一次全撈。
+    案例用於說明 Generate vs Judge 工作流設計,以及 context 設定對 AI 輸出品質的影響。
+- id: CASE-FIN-001
+  title: Paytide 跨幣別手續費負數事件
+  domain: fin
+  chapters:
+  - ch-38
+  summary: |
+    Paytide 是一家做法人支付清算的 FinTech 公司。工程師小薇用 AI 助手實作
+    「跨幣別轉帳手續費計算」功能:依轉帳金額、目標幣別、來源銀行代碼查費率表,
+    乘費率再加固定費。AI 生成的程式碼邏輯正確,快樂路徑測試通過。上線三週後,
+    一批 SGD 轉帳因費率表未配置 SGD 欄位,程式碼查表回傳 None,
+    後續計算產生負數手續費,錢被多退。根因是 AI 只填滿了「有費率」的路徑,
+    未處理費率缺失情境,而補測清單沒有要求覆蓋這個邊界。
+    用於說明:為 AI 生成碼補測的四個角度,尤其「邊界與缺失輸入」和「業務不變式」。
+- id: CASE-FIN-029
+  title: LucidPay 轉帳服務 SLO 重整
+  domain: fin
+  chapters:
+  - ch-29
+  summary: |
+    LucidPay 為一家虛構的支付公司,轉帳核心服務(transfer-api)在未定義
+    SLI/SLO 的情況下設下「99.99% 可用性」目標,導致告警疲勞、發布遲滯、
+    以及季末無法驗收目標。本案例展示如何從模糊目標出發,建立 SLI 定義、
+    合理 SLO 設定、錯誤預算計算與雙窗口燃燒率告警的完整實作流程。
+    量測點選擇 Nginx 負載平衡器層,可用性 SLO 99.9%,28 天滾動窗口,
+    對外 SLA 99.5%。雙窗口燃燒率告警:P1 > 14.4x(5min+1h)、P2 > 6x(30min+6h)。
+- id: CASE-FIN-028
+  title: PingPay 跨境轉帳 TLS 憑證事故
+  domain: fin
+  chapters:
+  - ch-28
+  summary: |
+    PingPay 是一家虛構的跨境即時轉帳金融科技公司。
+    2025 年某深夜,第三方清算商 ClearPay 的 TLS 憑證到期,
+    自動更新腳本靜默失敗導致轉帳成功率從 99.7% 跌至 61%,
+    持續 54 分鐘。技術止血僅需 5 分鐘(切換備援清算商),
+    其餘 49 分鐘耗費於決策空白、資訊真空與止血/根因混淆,
+    用於說明事故處理流程設計比技術能力更決定事故代價。
+- id: CASE-SAS-045
+  title: NovaDeskAI 彈性表單 EAV Schema 判斷案例
+  domain: sas
+  chapters:
+  - ch-45
+  summary: |
+    NovaDeskAI 是一家多租戶 SaaS 公司。新人工程師小霖使用 AI 助手為彈性表單功能
+    設計了 EAV(Entity-Attribute-Value)架構的 schema,功能在小資料下運作正常,
+    但在 200 個租戶、每租戶 10 萬筆資料的規模下查詢時間從 12ms 惡化至 3.4 秒。
+    案例說明判斷力停在 L1/L2 而未到達 L3 的典型風險,以及刻意養成機制的重要性。
+    技術細節:EAV 模式在高查詢頻率 + 多租戶場景的索引命中率問題為真實可驗證的技術現象。
+- id: CASE-SAS-046
+  title: Sealflow 計費帳單差異事件
+  domain: sas
+  chapters:
+  - ch-46
+  summary: |
+    多租戶 SaaS 公司 Sealflow 的計費模組出現帳單差異問題:
+    某些企業租戶的月度用量累計值與帳單金額不符。
+    根因為 Kafka 消費端的 offset commit 策略在特定失敗情境(消費到一半 crash)
+    未正確回溯,導致計量事件被跳過。虛構公司/數字,
+    Kafka offset commit 語義(at-least-once/exactly-once)為真實可驗證技術細節。
+    事件以工程師韋廷的成長路徑為視角,呈現「廣度涉獵」和「垂直穿透力」的實質差異。
+- id: CASE-HCR-044
+  title: MedLink EMR legacy 系統接手
+  domain: hcr
+  chapters:
+  - ch-44
+  summary: |
+    MedLink 是一家虛構的醫療 SaaS 公司,提供電子病歷(EMR)服務給約四十家小型診所。
+    其核心 EMR 系統以 PHP 5.6 寫成,運行七年,無自動化測試,人工回歸需兩週。
+    新工程師小敏接手後,以「讀懂 → 安全網 → 漸進改善」三階段 90 天計畫,
+    在不重寫系統的前提下,建立了核心三條業務路徑的特徵測試覆蓋,
+    並成功完成 processData() 函式的第一步拆分。
+    技術細節:PHP 5.6/8.1、MySQL 5.7、Apache 2.4;
+    特徵測試(Characterization Test)與漸進重構方法論為真實可驗證的工程實踐。
+- id: CASE-FIN-043
+  title: Clearflow 跨境支付 DDL 鎖阻斷事故
+  domain: fin
+  chapters:
+  - ch-43
+  summary: |
+    Clearflow 是一間台北/新加坡雙中心的跨境匯款 Fintech 新創。
+    2026 年 3 月,工程師 Priya 在生產環境對 3,800 萬筆記錄的 payments 資料表
+    執行 CREATE INDEX(未使用 CONCURRENTLY 選項),導致 PostgreSQL 17
+    對整張表加 ShareLock,造成跨境匯款服務停擺 23 分鐘,估計損失
+    手續費收入 NT$90 萬。根因為大表 DDL 鎖行為屬於隱性知識,
+    未轉化為 migration 範本或 CI 靜態分析等系統性檢查點。
+    本案例用於示範無咎復盤(Blameless Postmortem)的完整流程:
+    時間線重建、五問根因、行動項分類(預防/偵測/知識)。
+- id: CASE-FIN-037
+  title: Velopay 跨境匯款手續費計算服務 float64 精度事件
+  domain: fin
+  chapters:
+  - ch-37
+  summary: |
+    虛構 fintech 公司 Velopay 的工程師小林,將 AI 生成的手續費計算服務
+    提交 PR。程式碼邏輯正確、單元測試全過,但使用 float64 進行幣別換算,
+    違反 Velopay 金融計算規範(應使用 decimal.Decimal)。
+    事件在 code review 階段被同事阿偉以「業務脈絡比對」方法發現,
+    未進入生產。用於說明 AI 程式碼的「領域脈絡盲區」與六維審查框架中
+    維度③的重要性。技術細節:IEEE 754 float64 精度問題、
+    shopspring/decimal v1.4、SWIFT 幣別精度規範。
+- id: CASE-FIN-041
+  title: ClearTrade 客戶自動轉帳合規驗證時區事件
+  domain: fin
+  chapters:
+  - ch-41
+  summary: |
+    線上券商 ClearTrade 在實作「單日累計轉帳超過 TWD 500,000 需補充身份驗證」功能時,
+    工程師使用 AI 輔助生成了合規邏輯,但未針對「單日」定義的時區邊界進行業務正確性判斷。
+    AI 使用伺服器本地時間(UTC+8)計算累計金額,導致部分海外時區客戶可在跨午夜的時間窗口
+    繞過累計計算,未觸發身份驗證。事件揭示了 Generate vs Judge 邊界中 L3「業務正確性」
+    層次的盲點:AI 的程式碼語法邏輯完全正確,但「哪個時區的午夜算作分日」是業務決策,
+    必須由了解合規規則的工程師確認,無法外包給 AI。案例同時展示 L4「系統影響」
+    (跨午夜的邊界條件在高峰時段的並發安全)與 L5「責任可說明」(合規事件的後續問責
+    路徑)在實際工程場景中如何具體呈現。
+- id: CASE-ECM-003
+  title: ShopNova 電商後台訂單管理服務環境標準化
+  domain: ecm
+  chapters:
+  - ch-03
+  summary: |-
+    ShopNova 是一家虛構的電商 SaaS 公司。本案例圍繞訂單管理服務(order-service)
+    開發環境不一致的問題展開:工程師小雅在拉取同事 PR 進行本機確認時,
+    遭遇 PostgreSQL 版本差異(本機 14 vs CI 17)、缺少環境變數文件、
+    套件安裝錯誤等問題,耗費近兩小時才能啟動服務。
+    本案例用於說明可重現環境、環境基線確認單、.env.example、
+    docker-compose profile 分層等實踐的必要性與具體做法。
+- id: CASE-ECM-015
+  title: Cartify 電商結帳服務 CI 流水線重設計
+  domain: ecm
+  chapters:
+  - ch-15
+  summary: |-
+    Cartify 是一家中型電商平台,其結帳服務(checkout-service)的 CI 流水線將
+    單元、整合、E2E 測試全部排成一條線,導致每次跑需 25–30 分鐘。加上兩支
+    不穩定的 E2E 測試,工程師逐漸習慣忽略紅燈,最終演變成 CI 形同虛設的狀況。
+    本案例展示如何透過三層分層設計、按模組平行化整合測試、以及建立紅燈即停
+    文化,將有效回饋時間壓縮到 4 分鐘(Layer 1),同時恢復團隊對 CI 紅燈的信任。
+- id: CASE-SAS-019
+  title: FlowBill 訂閱 API 跨團隊介面契約事件
+  domain: sas
+  chapters:
+  - ch-19
+  summary: |-
+    FlowBill 是一家多租戶 SaaS 計費公司(虛構)。帳務團隊與核心平台團隊
+    各自維護不同模組,帳務團隊在未通知消費方的情況下重命名 API 回傳欄位
+    (plan_name → plan_display_name),導致核心平台團隊的整合測試爆開。
+    事後兩支團隊補填介面契約書、引入 Pact 契約測試,建立破壞性變更的
+    通知與遷移協議,解決了跨團隊 API 相依的協調盲區。
+- id: CASE-ECM-020
+  title: Cartly 電商訂單系統 CI/CD 重建
+  domain: ecm
+  chapters:
+  - ch-20
+  summary: |-
+    Cartly 是一家中型 B2C 電商公司,訂單系統旺季流量約為平日五倍。
+    改善前,部署流程依賴單一 DevOps 工程師阿明的手動操作,知識未流程化。
+    阿明請假時的緊急 hotfix 卡住三小時,暴露出可重現性與流程化的缺失。
+    重建後採五段式 CI/CD 流水線,包含 Docker 建置隔離、SHA-tagged 不可變產物、
+    自動 Staging 部署與自動回滾,達成「任何人都能安全執行」的交付承諾。
+- id: CASE-SAS-021
+  title: Cloudhive 計費儀表板 v2 漸進式發布
+  domain: sas
+  chapters:
+  - ch-21
+  summary: |-
+    Cloudhive 為 SaaS 專案管理工具,計畫將計費儀表板從靜態帳單頁面
+    改為即時用量顯示的新版本。工程師使用發布旗標讓程式碼先上線、旗標
+    先關閉,並在漸進開放至 5% 租戶時發現計算邏輯的邊界條件(訂閱週期
+    跨月時用量多算一天),因流量覆蓋小而能安全修復後重啟旗標,最終全量
+    穩定。此案例示範發布旗標的完整生命週期:建立 → 漸進開放 → Kill Switch
+    → 修復重試 → 全量 → 刪除。
+- id: CASE-FIN-023
+  title: Clearflow 帳單計算改版 / 匯率格式遷移事件
+  domain: fin
+  chapters:
+  - ch-23
+  summary: |-
+    Clearflow 支付公司推出帳單計算邏輯改版,將匯率資料的 JSON 格式從 flat 結構改為 nested 結構。
+    部署後二十分鐘,約 3% 的交易讀取匯率資料失敗。
+    由於部分匯率記錄已按新格式寫入資料庫,回滾舊程式碼後仍無法讀取這批新格式資料。
+    最終選擇前向修復:加入讀取相容層(同時支援 flat / nested 兩種格式),
+    上線後錯誤率歸零,再批次補轉舊格式資料。
+    本案說明資料格式變更在無 schema migration 的情況下仍可能造成回滾不相容。
+- id: CASE-FIN-025
+  title: ClearPay 支付閘道可觀測性改善
+  domain: fin
+  chapters:
+  - ch-25
+  summary: |-
+    ClearPay 是一家虛構的台灣支付公司。其支付閘道服務因缺乏結構化日誌、
+    關聯 ID 與業務層 Metric,在一次清算 API 逾時配置異常事故中花費近兩小時
+    才定位根因。事後透過 pino v8.x + OpenTelemetry 1.x 補齊三根柱埋點,
+    將同類型事故的 MTTR 從 120 分鐘降至 18 分鐘。
+    技術細節均為真實可驗證的實作模式。
+- id: CASE-FIN-030
+  title: 捷灃支付核心清算服務災難復原演練
+  domain: fin
+  chapters:
+  - ch-30
+  summary: |-
+    虛構的台灣本土支付公司「捷灃支付」,在一次生產資料庫故障後發現備份從未被
+    實際驗證。事故後三週,工程師小雯帶團隊完成第一次遊戲日演練,發現 Runbook
+    因 PostgreSQL 14→16 升版後未更新,導致演練超出 RTO 目標 17 分鐘。
+    演練記錄了兩個卡點並排定後續改善,作為建立持續演練習慣的起點。
+- id: CASE-ECM-035
+  title: FlashMart 雙十二大促結帳服務容量規劃
+  domain: ecm
+  chapters:
+  - ch-35
+  summary: |-
+    虛構電商平台 FlashMart,日常 TPS 約 180,大促整點開搶瞬間峰值達 12 倍(2,160 TPS)。
+    前一年大促因未針對脈衝式流量做容量規劃,導致第十五分鐘 PostgreSQL 連線池耗盡、
+    訂單落庫停擺。本案例示範如何建立負載模型、進行尖峰測試設計(k6 v0.52)、
+    驗證超容量降級行為(Redis Stream 排隊 + HTTP 503 優雅降級),並以壓測結果
+    驅動 Goroutine pool 調整決策。技術棧:Go 1.22、PostgreSQL 17、Redis 7、k6 v0.52。
+- id: CASE-SAS-040
+  title: CloudPost PR 摘要 Prompt 工程化
+  domain: sas
+  chapters:
+  - ch-40
+  summary: |-
+    CloudPost 是一家 30 人工程團隊的雲端文件協作 SaaS 公司。
+    Tech Lead 秀敏帶領團隊將 PR 摘要生成 prompt 正式版控,
+    建立工程資產卡格式、golden cases 測試套件,以及 /context/ 模組化目錄。
+    案例重點:prompt 版控的工作流、三層測試策略、模型升版後的回歸驗證。
+- id: CASE-SAS-042
+  title: Stafflink 批次駁回員工申請
+  domain: sas
+  chapters:
+  - ch-42
+  summary: |-
+    Stafflink 是一家虛構的人資 SaaS 公司。第 42 章以其「員工審核模組」的
+    「部門主管批次駁回申請」功能為主線案例,示範從需求確認、測試骨架、
+    實作、PR、Staging 驗收到上線觀測的完整六步實作流程。
+    核心技術點:批次操作的事務原子性、部分失敗的回滾策略、
+    Structured Log 與 Metric 設計、上線後 30 分鐘觀測窗。
+    公司名、數字均為虛構;技術細節(PostgreSQL 17 transaction、
+    OpenTelemetry 1.x metric、非同步通知佇列)均真實可驗證。
