@@ -2,7 +2,7 @@
 chapter: 43
 part: IX
 title: 一次生產事故的完整復盤
-slug: ch-43-incident-postmortem
+slug: incident-postmortem
 agent: RD
 domain_case: CASE-FIN-043
 status: draft
@@ -12,8 +12,8 @@ word_count_target: 5500
 # 第 43 章｜一次生產事故的完整復盤
 ## ⸺ 從「誰的錯」到「我們學到了什麼」
 
-> **前置閱讀**:[第 26 章｜從告警到根因:生產環境除錯](../part-06-operations/ch-26-debugging-production.md)、[第 28 章｜On-call 與事故處理(工程師視角)](../part-06-operations/ch-28-on-call-incident-handling.md)
-> **後續章節**:[第 44 章｜接手 legacy 系統的 90 天計畫](./ch-44-legacy-90-days.md)、[第 45 章｜判斷力的養成](./ch-45-judgment-development.md)
+> **前置閱讀**:[第 26 章｜從告警到根因:生產環境除錯](../part-06-operations/ch-26-alert-to-rootcause.md)、[第 28 章｜On-call 與事故處理(工程師視角)](../part-06-operations/ch-28-on-call.md)
+> **後續章節**:[第 44 章｜接手 legacy 系統的 90 天計畫](./ch-44-legacy-90-days.md)、[第 45 章｜判斷力的養成](./ch-45-cultivating-judgment.md)
 
 ## 43.1 共感現場:那份你不確定該不該寫的復盤報告
 
@@ -307,9 +307,9 @@ PostgreSQL 的 CREATE INDEX 在大表上會加 ShareLock,阻擋所有寫入。
 
 ## Cross-References
 
-- **前章**:[第 42 章｜從設計到上線:一個完整功能的實作全紀錄](./ch-42-feature-fullstack.md) ⸺ 功能走完全流程之後,下一步是從出錯的事故裡學習
+- **前章**:[第 42 章｜從設計到上線:一個完整功能的實作全紀錄](./ch-42-feature-end-to-end.md) ⸺ 功能走完全流程之後,下一步是從出錯的事故裡學習
 - **下一章**:[第 44 章｜接手 legacy 系統的 90 天計畫](./ch-44-legacy-90-days.md) ⸺ 接手系統時,過去的事故報告是最重要的第一手資料
-- **強連結**:[第 26 章｜從告警到根因:生產環境除錯](../part-06-operations/ch-26-debugging-production.md) ⸺ 除錯方法論是時間線重建的前置技能
-- **強連結**:[第 28 章｜On-call 與事故處理(工程師視角)](../part-06-operations/ch-28-on-call-incident-handling.md) ⸺ 事故處理的現場操作,與復盤形成完整閉環
-- **強連結**:[第 45 章｜判斷力的養成](./ch-45-judgment-development.md) ⸺ 復盤是刻意養成判斷力最有效的機制之一
+- **強連結**:[第 26 章｜從告警到根因:生產環境除錯](../part-06-operations/ch-26-alert-to-rootcause.md) ⸺ 除錯方法論是時間線重建的前置技能
+- **強連結**:[第 28 章｜On-call 與事故處理(工程師視角)](../part-06-operations/ch-28-on-call.md) ⸺ 事故處理的現場操作,與復盤形成完整閉環
+- **強連結**:[第 45 章｜判斷力的養成](./ch-45-cultivating-judgment.md) ⸺ 復盤是刻意養成判斷力最有效的機制之一
 - **跨書連結**:[SA/SD Playbook Ch 27](https://github.com/EddyKuo/sa-sd-playbook) ⸺ 可觀測性設計,讓時間線重建有資料佐證

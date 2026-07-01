@@ -2,7 +2,7 @@
 chapter: 4
 part: I
 title: 版本控制策略
-slug: ch-04-version-control
+slug: version-control
 agent: RD
 domain_case: CASE-ECM-002
 status: draft
@@ -79,7 +79,6 @@ flowchart TD
   GH  --> NOTE2["以 PR 為單位\n合前 CI 跑完\n適合多數 web 團隊"]
   GF  --> NOTE3["有 hotfix / release 分支\n適合版號化軟體\n整合成本最高"]
 
-  classDef hot  fill:#fee,stroke:#c33
   classDef cold fill:#eef,stroke:#36c
   classDef goal fill:#efe,stroke:#3a3
 ```

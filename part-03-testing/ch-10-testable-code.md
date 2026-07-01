@@ -2,7 +2,7 @@
 chapter: 10
 part: III
 title: 可測試的程式碼設計
-slug: ch-10-testable-code
+slug: testable-code
 agent: RD
 domain_case: CASE-HCR-010
 status: draft
@@ -12,8 +12,8 @@ word_count_target: 5500
 # 第 10 章｜可測試的程式碼設計
 ## ⸺ 難以測試的程式碼,是設計在向你說話
 
-> **前置閱讀**:[第 8 章｜重構的時機與安全網](../part-02-craft/ch-08-refactoring.md)、[第 9 章｜程式碼層的技術債](../part-02-craft/ch-09-technical-debt.md)
-> **下游章節**:[第 11 章｜單元測試與 TDD 的落地](./ch-11-unit-testing-tdd.md)、[第 13 章｜測試替身的取捨](./ch-13-test-doubles.md)
+> **前置閱讀**:[第 8 章｜重構的時機與安全網](../part-02-craft/ch-08-refactoring.md)、[第 9 章｜程式碼層的技術債](../part-02-craft/ch-09-tech-debt.md)
+> **下游章節**:[第 11 章｜單元測試與 TDD 的落地](./ch-11-unit-tdd.md)、[第 13 章｜測試替身的取捨](./ch-13-test-doubles.md)
 
 ## 10.1 共感現場:「這段我不知道怎麼測」
 
@@ -361,7 +361,7 @@ flowchart TD
 
 ## Cross-References
 
-- **下一章**:[第 11 章｜單元測試與 TDD 的落地](./ch-11-unit-testing-tdd.md) ⸺ 有了可測試的設計,接著讓測試本身也寫得好
+- **下一章**:[第 11 章｜單元測試與 TDD 的落地](./ch-11-unit-tdd.md) ⸺ 有了可測試的設計,接著讓測試本身也寫得好
 - **強連結**:[第 13 章｜測試替身的取捨](./ch-13-test-doubles.md) ⸺ 深入討論 mock/stub/fake 的選擇,與本章的依賴注入直接相關
 - **強連結**:[第 8 章｜重構的時機與安全網](../part-02-craft/ch-08-refactoring.md) ⸺ 把難測試的程式碼改成容易測試的形狀,就是一次重構
 - **強連結**:[第 6 章｜命名、抽象與邊界](../part-02-craft/ch-06-naming-abstraction.md) ⸺ 邊界隔離的前提是抽象邊界劃得清楚

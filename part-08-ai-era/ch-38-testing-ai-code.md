@@ -2,7 +2,7 @@
 chapter: 38
 part: VIII
 title: 為 AI 生成碼補測試與防護
-slug: ch-38-testing-ai-code
+slug: testing-ai-code
 agent: RD
 domain_case: CASE-FIN-001
 status: draft

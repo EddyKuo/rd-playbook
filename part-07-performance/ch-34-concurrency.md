@@ -2,7 +2,7 @@
 chapter: 34
 part: VII
 title: 並發、非同步與背壓
-slug: ch-34-concurrency
+slug: concurrency
 agent: RD
 domain_case: CASE-ECM-034
 status: draft
@@ -13,7 +13,7 @@ word_count_target: 5500
 ## ⸺ 當流量比你想的快一步,問題就在這裡等你
 
 > **前置閱讀**:[第 33 章｜快取的層次與失效策略](./ch-33-caching.md)
-> **下游章節**:[第 35 章｜容量規劃與壓力測試](./ch-35-capacity-planning.md)
+> **下游章節**:[第 35 章｜容量規劃與壓力測試](./ch-35-capacity.md)
 
 ## 34.1 共感現場:那個「平常完全沒問題」的服務
 
@@ -75,6 +75,8 @@ async def create_order(user_id: int, item_id: int, qty: int):
 `async/await` 解決的是 **I/O 等待的效率問題**:當你在等資料庫回應時,可以把執行權讓出去,讓事件迴圈處理別的請求,而不是乾等著。它不保證你的讀-改-寫之間「不會有人插進來」。換句話說,`async/await` 讓你同時服務更多請求,但同時服務更多請求,正好是競態條件最容易發生的場景。
 
 這就是為什麼很多工程師剛學到 `asyncio` 或 Node.js Event Loop 的時候,會以為「非同步 = 不用擔心並發」。其實恰好相反,非同步程式設計讓你更容易同時跑多件事,也就讓你更需要考慮它們之間的干涉。
+
+而非同步陷阱還有第二層,比原子性更隱蔽:非同步架構天生就充滿「同一個請求被送不只一次」的來源。用戶端在逾時後重試、網路抖動造成請求被重送、佇列的 at-least-once 投遞讓消費端收到兩份同樣的訊息——這些在同步的單機呼叫裡不太會遇到的情況,在非同步、跨服務的世界裡是常態。它的症狀不是庫存變負數,而是**重複訂單**:同一筆下單被完整地執行了兩次。這一層的問題不能靠鎖來解,因為兩次請求可能相隔很遠、根本沒有「同時」,得靠後面 §34.3.2 的冪等設計來擋。
 
 ### 34.2.3 背壓缺失:下游吞不下去,佇列就爆掉
 
@@ -509,8 +511,8 @@ sequenceDiagram
 ## Cross-References
 
 - **前一章**:[第 33 章｜快取的層次與失效策略](./ch-33-caching.md) ⸺ 快取失效與並發同樣需要考慮競態
-- **下一章**:[第 35 章｜容量規劃與壓力測試](./ch-35-capacity-planning.md) ⸺ 知道系統的承載上限,才能設計合理的限流與背壓參數
-- **強連結**:[第 26 章｜從告警到根因：生產環境除錯](../part-06-operations/ch-26-debugging-production.md) ⸺ 競態條件引發的事故,根因定位方法
+- **下一章**:[第 35 章｜容量規劃與壓力測試](./ch-35-capacity.md) ⸺ 知道系統的承載上限,才能設計合理的限流與背壓參數
+- **強連結**:[第 26 章｜從告警到根因：生產環境除錯](../part-06-operations/ch-26-alert-to-rootcause.md) ⸺ 競態條件引發的事故,根因定位方法
 - **強連結**:[第 32 章｜瓶頸定位](../part-07-performance/ch-32-bottleneck.md) ⸺ 鎖等待是常見的 CPU/IO 瓶頸來源
 - **跨書連結**:[SA/SD Playbook Ch 29 — 一致性模型](https://github.com/EddyKuo/sa-sd-playbook) ⸺ 樂觀鎖背後的一致性設計決策
 - **跨書連結**:[QA Playbook — 並發測試策略](https://github.com/EddyKuo/qa-playbook) ⸺ 如何設計並發測試覆蓋竟態場景

@@ -2,7 +2,7 @@
 chapter: 32
 part: VII
 title: 瓶頸定位
-slug: ch-32-bottleneck
+slug: bottleneck
 agent: RD
 domain_case: CASE-ECM-032
 status: draft
@@ -287,7 +287,7 @@ DB 連線池:    active=28 / waiting=0  → 是否排隊? N
 
 - **下一章**:[第 33 章｜快取的層次與失效策略](./ch-33-caching.md) ⸺ 定位到 I/O 瓶頸或外部 API 慢之後,快取通常是第一個工具
 - **前一章**:[第 31 章｜效能量測先於優化](./ch-31-measure-first.md) ⸺ 本章的前置:沒有量測就沒有基準,沒有基準就無法判斷優化是否有效
-- **強連結**:[第 26 章｜從告警到根因:生產環境除錯](../part-06-operations/ch-26-production-debugging.md) ⸺ 除錯方法論「大膽假設、小心求證」和瓶頸定位共用同一套思路
+- **強連結**:[第 26 章｜從告警到根因:生產環境除錯](../part-06-operations/ch-26-alert-to-rootcause.md) ⸺ 除錯方法論「大膽假設、小心求證」和瓶頸定位共用同一套思路
 - **強連結**:[第 25 章｜可觀測性落地](../part-06-operations/ch-25-observability.md) ⸺ USE 方法需要 metric/trace 的基礎建設才能運作
 - **強連結**:[第 34 章｜並發、非同步與背壓](./ch-34-concurrency.md) ⸺ 鎖競爭定位之後,解法往往在這裡
 - **跨書連結**:[SA/SD Playbook Ch 27｜效能與可靠性屬性](https://github.com/EddyKuo/sa-sd-playbook) ⸺ 架構高度的效能屬性設計,與本章實作高度的定位互補

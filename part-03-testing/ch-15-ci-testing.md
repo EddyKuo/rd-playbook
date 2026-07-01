@@ -2,7 +2,7 @@
 chapter: 15
 part: III
 title: 與 CI 整合的測試流水線
-slug: ch-15-ci-testing
+slug: ci-testing
 agent: RD
 domain_case: CASE-ECM-015
 status: draft
@@ -321,6 +321,6 @@ CI 流水線設計卡 ⸺ Cartify 結帳服務 (checkout-service)
 
 - **前一章**:[第 14 章｜測試資料與測試環境](./ch-14-test-data.md) ⸺ 流水線裡的整合測試需要可靠的測試資料與環境,這兩件事相互依存
 - **下一章**:[第 16 章｜Code Review:看什麼、怎麼給回饋](../part-04-collaboration/ch-16-code-review.md) ⸺ CI 全綠是 PR 進入 review 的入場條件,兩者串聯形成完整的品質關卡
-- **強連結**:[第 20 章｜CI/CD 流水線設計](../part-05-delivery/ch-20-cicd-pipeline.md) ⸺ 本章談測試層的設計與分層,第 20 章談整條交付流水線的架構
+- **強連結**:[第 20 章｜CI/CD 流水線設計](../part-05-delivery/ch-20-cicd.md) ⸺ 本章談測試層的設計與分層,第 20 章談整條交付流水線的架構
 - **強連結**:[第 10 章｜可測試的程式碼設計](./ch-10-testable-code.md) ⸺ 可測試的設計是流水線能快的前提;模組邊界清楚,才能有效按模組平行化
 - **跨書連結**:[SA/SD Playbook Ch28｜測試策略與品質門禁](https://github.com/EddyKuo/sa-sd-playbook) ⸺ 架構層的質量門禁設計,與本章的實作層 CI 設計互補

@@ -2,7 +2,7 @@
 chapter: 45
 part: IX
 title: 判斷力的養成:當階梯被 AI 抽掉
-slug: ch-45-cultivating-judgment
+slug: cultivating-judgment
 agent: RD
 domain_case: CASE-SAS-045
 status: draft
@@ -12,7 +12,7 @@ word_count_target: 5500
 # 第 45 章｜判斷力的養成:當階梯被 AI 抽掉
 ## ⸺ L1 能跑、L2 合慣例、L3 設計對、L4 架構美——四層爬升,刻意練習
 
-> **前置閱讀**:[第 41 章｜AI 時代的工程師心智與責任界線](../part-08-ai-era/ch-41-engineer-mindset-and-responsibility.md)、[第 27 章｜向下穿透抽象層](../part-06-operations/ch-27-penetrating-abstractions.md)
+> **前置閱讀**:[第 41 章｜AI 時代的工程師心智與責任界線](../part-08-ai-era/ch-41-engineer-mindset.md)、[第 27 章｜向下穿透抽象層](../part-06-operations/ch-27-penetrating-abstraction.md)
 > **下游章節**:[第 46 章｜研發者的成長路徑](./ch-46-growth-path.md)
 
 ## 45.1 共感現場:它確實能跑,然後呢?
@@ -106,7 +106,7 @@ graph TD
 
 最直接的做法:在任何技術選擇落定之後,主動問:「什麼情況會讓這個選擇出問題?」然後刻意去製造那個情況。
 
-以小霖的案例為例:如果他在 Demo 後問「我能不能跑一個負載測試,模擬 100 個租戶同時查詢?」——那個測試就是現實裁判。測試結果會告訴他 EAV 在這個規模下的查詢時間,而那個數字,會比任何理論解說都更直接地刻進他的判斷裡。
+以小霖的案例為例:如果他在 Demo 後問「我能不能跑一個負載測試,模擬 200 個租戶同時查詢?」——那個測試就是現實裁判。測試結果會告訴他 EAV 在這個規模下的查詢時間,而那個數字,會比任何理論解說都更直接地刻進他的判斷裡。
 
 從 L1 的「能跑」到 L3 的「設計對」,中間差的那一段,往往是「你有沒有主動去找那個讓你痛的現實」。
 
@@ -253,10 +253,10 @@ graph TD
 
 ## Cross-References
 
-- **前一章**:[第 44 章｜接手 legacy 系統的 90 天計畫](./ch-44-legacy-system-90-days.md) ⸺ 接手時需要的正是 L3~L4 判斷力
+- **前一章**:[第 44 章｜接手 legacy 系統的 90 天計畫](./ch-44-legacy-90-days.md) ⸺ 接手時需要的正是 L3~L4 判斷力
 - **下一章**:[第 46 章｜研發者的成長路徑](./ch-46-growth-path.md) ⸺ 判斷力的養成是成長路徑的核心軸線
 - **強連結**:[第 1 章｜為什麼工程實作需要決策框架](../part-01-foundations/ch-01-why-engineering-decisions.md) ⸺ 本書的起點:「能跑」只是判斷的第一層
-- **強連結**:[第 27 章｜向下穿透抽象層](../part-06-operations/ch-27-penetrating-abstractions.md) ⸺ broken ladder 的歷史先例,抽象層移除了「被逼著向下鑽」的養成時刻
+- **強連結**:[第 27 章｜向下穿透抽象層](../part-06-operations/ch-27-penetrating-abstraction.md) ⸺ broken ladder 的歷史先例,抽象層移除了「被逼著向下鑽」的養成時刻
 - **強連結**:[第 37 章｜審查 AI 生成的程式碼](../part-08-ai-era/ch-37-reviewing-ai-code.md) ⸺ 機制二「主動拷問 AI」的操作細節在此展開
-- **強連結**:[第 41 章｜AI 時代的工程師心智與責任界線](../part-08-ai-era/ch-41-engineer-mindset-and-responsibility.md) ⸺ 更廣的心智框架,本章是其具體落地
+- **強連結**:[第 41 章｜AI 時代的工程師心智與責任界線](../part-08-ai-era/ch-41-engineer-mindset.md) ⸺ 更廣的心智框架,本章是其具體落地
 - **跨書連結**:SA/SD Playbook 的架構決策框架 ⸺ L4 架構美的判斷力與彼書高度互補

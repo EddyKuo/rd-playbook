@@ -2,7 +2,7 @@
 chapter: 6
 part: II
 title: 命名、抽象與邊界
-slug: ch-06-naming-abstraction
+slug: naming-abstraction
 agent: RD
 domain_case: CASE-ECM-006
 status: draft
@@ -13,7 +13,7 @@ word_count_target: 5800
 ## ⸺ 好名字不是在找詞,而是在對齊思考
 
 > **前置閱讀**:[第 5 章｜可讀性:為下一個人而寫](./ch-05-readability.md)
-> **下游章節**:[第 7 章｜控制複雜度](./ch-07-control-complexity.md)
+> **下游章節**:[第 7 章｜控制複雜度](./ch-07-complexity.md)
 
 ## 6.1 共感現場:那個大家都說「懂」的函式
 
@@ -275,7 +275,7 @@ flowchart TD
 ## Cross-References
 
 - **前一章**:[第 5 章｜可讀性:為下一個人而寫](./ch-05-readability.md) ⸺ 可讀性的基礎概念,與本章的命名原則互相支撐
-- **下一章**:[第 7 章｜控制複雜度](./ch-07-control-complexity.md) ⸺ 邊界畫好之後,條件與巢狀的控制
+- **下一章**:[第 7 章｜控制複雜度](./ch-07-complexity.md) ⸺ 邊界畫好之後,條件與巢狀的控制
 - **強連結**:[第 8 章｜重構的時機與安全網](./ch-08-refactoring.md) ⸺ 命名不對、邊界模糊時,如何安全地重整
 - **強連結**:[第 16 章｜Code Review:看什麼、怎麼給回饋](../part-04-collaboration/ch-16-code-review.md) ⸺ 命名品質是 code review 最容易發現、也最值得討論的向度
 - **跨書連結**:[SA/SD Playbook](https://github.com/EddyKuo/sa-sd-playbook) ⸺ 模組邊界的系統設計層次,參見 SA/SD Part III 設計篇

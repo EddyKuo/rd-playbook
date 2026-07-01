@@ -2,7 +2,7 @@
 chapter: 19
 part: IV
 title: 跨團隊的介面契約與相依
-slug: ch-19-interface-contracts
+slug: interface-contracts
 agent: RD
 domain_case: CASE-SAS-019
 status: draft
@@ -13,7 +13,7 @@ word_count_target: 5500
 ## ⸺ 當兩支團隊同時改 API,到底誰說了算?
 
 > **前置閱讀**:[第 17 章｜Pull Request 的拆分與描述](./ch-17-pull-request.md) ⸺ 理解如何把改動說清楚,是協調介面變更的前提
-> **下游章節**:[第 20 章｜CI/CD 流水線設計](../part-05-delivery/ch-20-cicd-pipeline.md) ⸺ 契約測試要能自動跑,才能在流水線裡守住
+> **下游章節**:[第 20 章｜CI/CD 流水線設計](../part-05-delivery/ch-20-cicd.md) ⸺ 契約測試要能自動跑,才能在流水線裡守住
 
 ---
 
@@ -21,7 +21,7 @@ word_count_target: 5500
 
 你可能也遇過這樣的場景。
 
-我帶過一個做 SaaS 多租戶計費系統的團隊,剛分出一個叫「訂閱服務(Subscription Service)」的新模組。分法很自然:帳務團隊負責計費邏輯,核心平台團隊負責使用者與租戶的基礎資料。兩支團隊各自有 sprint,各自有 KPI,也各自對自己的程式碼有完全的修改權。
+我帶過一個做 SaaS 多租戶計費系統的團隊(這裡就叫它 FlowBill),剛分出一個叫「訂閱服務(Subscription Service)」的新模組。分法很自然:帳務團隊負責計費邏輯,核心平台團隊負責使用者與租戶的基礎資料。兩支團隊各自有 sprint,各自有 KPI,也各自對自己的程式碼有完全的修改權。
 
 某個星期五下午,帳務團隊把一支 API `GET /v1/subscription/{id}` 的回傳欄位做了調整。他們把 `plan_name` 改成了 `plan_display_name`,因為這個名字在前端展示時更清楚。對帳務團隊來說,這是一個很小、很合理的改動——畢竟他們才是這支 API 的「主人」。
 
@@ -332,9 +332,9 @@ FlowBill 是一家多租戶 SaaS 計費公司(虛構)。帳務團隊那次週一
 ## Cross-References
 
 - **前一章**:[第 18 章｜結對/群體程式設計的時機](./ch-18-pairing.md) ⸺ 介面設計的早期討論,結對是個好時機
-- **下一章**:[第 20 章｜CI/CD 流水線設計](../part-05-delivery/ch-20-cicd-pipeline.md) ⸺ 契約測試要能自動跑,流水線是它的家
-- **強連結**:[第 12 章｜契約測試與整合測試](../part-03-testing/ch-12-contract-integration-testing.md) ⸺ Pact 的具體寫法與測試雙方的角色
-- **強連結**:[第 15 章｜與 CI 整合的測試流水線](../part-03-testing/ch-15-ci-test-pipeline.md) ⸺ pact verify 要在哪個階段跑
+- **下一章**:[第 20 章｜CI/CD 流水線設計](../part-05-delivery/ch-20-cicd.md) ⸺ 契約測試要能自動跑,流水線是它的家
+- **強連結**:[第 12 章｜契約測試與整合測試](../part-03-testing/ch-12-contract-integration.md) ⸺ Pact 的具體寫法與測試雙方的角色
+- **強連結**:[第 15 章｜與 CI 整合的測試流水線](../part-03-testing/ch-15-ci-testing.md) ⸺ pact verify 要在哪個階段跑
 - **跨書連結**:[SA/SD Playbook ⸺ 服務邊界設計](https://github.com/EddyKuo/sa-sd-playbook) ⸺ 本章談「如何協商介面」;SA/SD 談「如何決定邊界在哪裡」
 
 ---

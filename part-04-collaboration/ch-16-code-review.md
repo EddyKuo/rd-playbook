@@ -2,7 +2,7 @@
 chapter: 16
 part: IV
 title: Code Review:看什麼、怎麼給回饋
-slug: ch-16-code-review
+slug: code-review
 agent: RD
 domain_case: CASE-SAS-016
 status: draft
@@ -12,7 +12,7 @@ word_count_target: 5500
 # 第 16 章｜Code Review:看什麼、怎麼給回饋
 ## ⸺ 評審的目的不是找錯,而是讓整個團隊走得更遠
 
-> **前置閱讀**:[第 15 章｜與 CI 整合的測試流水線](../part-03-testing/ch-15-ci-test-pipeline.md)
+> **前置閱讀**:[第 15 章｜與 CI 整合的測試流水線](../part-03-testing/ch-15-ci-testing.md)
 > **下游章節**:[第 17 章｜Pull Request 的拆分與描述](./ch-17-pull-request.md)
 
 ## 16.1 共感現場:那條「看起來沒問題」的 comment

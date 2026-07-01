@@ -2,7 +2,7 @@
 chapter: 11
 part: III
 title: 單元測試與 TDD 的落地
-slug: ch-11-unit-tdd
+slug: unit-tdd
 agent: RD
 domain_case: CASE-FIN-011
 status: draft
@@ -12,8 +12,8 @@ word_count_target: 5500
 # 第 11 章｜單元測試與 TDD 的落地
 ## ⸺ 測行為、不測實作,才是讓測試真正撐住你的秘訣
 
-> **前置閱讀**:[第 10 章｜可測試的程式碼設計](./ch-10-testable-code-design.md)
-> **下游章節**:[第 12 章｜契約測試與整合測試](./ch-12-contract-and-integration-tests.md)
+> **前置閱讀**:[第 10 章｜可測試的程式碼設計](./ch-10-testable-code.md)
+> **下游章節**:[第 12 章｜契約測試與整合測試](./ch-12-contract-integration.md)
 
 ## 11.1 共感現場:綠燈全亮,卻還是上線出事了
 
@@ -527,8 +527,8 @@ TDD 的收益不在「開發時多快」,而在「三週後重構時有多安心
 
 ## Cross-References
 
-- **前一章**:[第 10 章｜可測試的程式碼設計](./ch-10-testable-code-design.md) ⸺ 可測試的設計是這一章的地基;設計不可測,TDD 寸步難行
-- **下一章**:[第 12 章｜契約測試與整合測試](./ch-12-contract-and-integration-tests.md) ⸺ 單元測試守住行為,整合測試守住協作;兩者互補
+- **前一章**:[第 10 章｜可測試的程式碼設計](./ch-10-testable-code.md) ⸺ 可測試的設計是這一章的地基;設計不可測,TDD 寸步難行
+- **下一章**:[第 12 章｜契約測試與整合測試](./ch-12-contract-integration.md) ⸺ 單元測試守住行為,整合測試守住協作;兩者互補
 - **強連結**:[第 13 章｜測試替身(mock/stub/fake)的取捨](./ch-13-test-doubles.md) ⸺ 本章說「用 fake/stub 隔離外部依賴」,第 13 章教你怎麼選和怎麼寫每種類型
 - **強連結**:[第 8 章｜重構的時機與安全網](../part-02-craft/ch-08-refactoring.md) ⸺ 測試是重構的安全網;本章的「重構」步驟與第 8 章深度連動
 - **跨書連結**:[SA/SD Playbook Ch27 — 為可測試性而設計](https://github.com/EddyKuo/sa-sd-playbook) ⸺ 架構高度的可測試性設計;RD 的「怎麼寫測試」承接 SA/SD 的「怎麼設計」

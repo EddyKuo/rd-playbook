@@ -2,7 +2,7 @@
 chapter: 25
 part: VI
 title: 可觀測性落地
-slug: ch-25-observability
+slug: observability
 agent: RD
 domain_case: CASE-FIN-025
 status: draft

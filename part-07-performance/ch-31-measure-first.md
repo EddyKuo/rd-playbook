@@ -2,7 +2,7 @@
 chapter: 31
 part: VII
 title: 效能量測先於優化
-slug: ch-31-measure-first
+slug: measure-first
 agent: RD
 domain_case: CASE-ECM-031
 status: draft
@@ -12,8 +12,8 @@ word_count_target: 5500
 # 第 31 章｜效能量測先於優化
 ## ⸺ 不知道慢在哪裡,改再多也只是猜
 
-> **前置閱讀**:[第 26 章｜從告警到根因:生產環境除錯](../part-06-operations/ch-26-production-debugging.md)
-> **下游章節**:[第 32 章｜瓶頸定位:CPU/IO/網路/鎖](./ch-32-bottleneck-profiling.md)
+> **前置閱讀**:[第 26 章｜從告警到根因:生產環境除錯](../part-06-operations/ch-26-alert-to-rootcause.md)
+> **下游章節**:[第 32 章｜瓶頸定位:CPU/IO/網路/鎖](./ch-32-bottleneck.md)
 
 ## 31.1 共感現場:那個「直覺」優化掉三天
 
@@ -334,8 +334,8 @@ flowchart TD
 
 ## Cross-References
 
-- **下一章**:[第 32 章｜瓶頸定位:CPU/IO/網路/鎖](./ch-32-bottleneck-profiling.md) ⸺ 找到熱路徑之後,如何判斷瓶頸類型
-- **強連結**:[第 26 章｜從告警到根因:生產環境除錯](../part-06-operations/ch-26-production-debugging.md) ⸺ 生產環境的量測視角與除錯方法論
+- **下一章**:[第 32 章｜瓶頸定位:CPU/IO/網路/鎖](./ch-32-bottleneck.md) ⸺ 找到熱路徑之後,如何判斷瓶頸類型
+- **強連結**:[第 26 章｜從告警到根因:生產環境除錯](../part-06-operations/ch-26-alert-to-rootcause.md) ⸺ 生產環境的量測視角與除錯方法論
 - **強連結**:[第 25 章｜可觀測性落地](../part-06-operations/ch-25-observability.md) ⸺ p50/p95/p99 的基礎設施來自可觀測性建設
-- **強連結**:[第 33 章｜快取的層次與失效策略](./ch-33-caching-strategies.md) ⸺ 本章 §31.4 提到快取不是萬能藥,第 33 章深入快取的正確用法
+- **強連結**:[第 33 章｜快取的層次與失效策略](./ch-33-caching.md) ⸺ 本章 §31.4 提到快取不是萬能藥,第 33 章深入快取的正確用法
 - **跨書參考**:見 SA/SD Playbook 第 29 章｜效能品質屬性 ⸺ 效能目標的設計高度(架構層);本章處理實作層的量測與優化

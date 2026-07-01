@@ -2,7 +2,7 @@
 chapter: 2
 part: I
 title: 讀懂一份陌生程式碼
-slug: ch-02-reading-unfamiliar-code
+slug: reading-unfamiliar-code
 agent: RD
 domain_case: CASE-ECM-001
 status: draft
@@ -330,6 +330,6 @@ flowchart TD
 - **上一章**:[第 1 章｜為什麼工程實作需要決策框架](./ch-01-why-engineering-decisions.md) ⸺ 判斷的前提,是先讀得懂
 - **下一章**:[第 3 章｜開發環境與本機工作流](./ch-03-dev-environment.md) ⸺ 讀懂之後,讓環境不再是藉口
 - **強連結**:[第 5 章｜可讀性:為下一個人而寫](../part-02-craft/ch-05-readability.md) ⸺ 反過來看:你寫的程式碼,別人也要能三步讀懂
-- **強連結**:[第 27 章｜向下穿透抽象層](../part-06-ops/ch-27-penetrate-abstractions.md) ⸺ 讀陌生程式碼的進階版:當抽象層擋住你的時候
+- **強連結**:[第 27 章｜向下穿透抽象層](../part-06-operations/ch-27-penetrating-abstraction.md) ⸺ 讀陌生程式碼的進階版:當抽象層擋住你的時候
 - **強連結**:[第 37 章｜審查 AI 生成的程式碼](../part-08-ai-era/ch-37-reviewing-ai-code.md) ⸺ AI 寫的程式碼,用三步讀懂它
 - **跨書連結**:[SA/SD Playbook](https://github.com/EddyKuo/sa-sd-playbook) ⸺ 系統設計高度的模組切分,決定了 RD 要讀的是什麼樣的邊界

@@ -2,7 +2,7 @@
 chapter: 29
 part: VI
 title: SLO 與錯誤預算的實作面
-slug: ch-29-slo
+slug: slo
 agent: RD
 domain_case: CASE-FIN-029
 status: draft
@@ -12,7 +12,7 @@ word_count_target: 5500
 # 第 29 章｜SLO 與錯誤預算的實作面
 ## ⸺ 從「不能掛」到「可以掛多少」的思維轉換
 
-> **前置閱讀**:[第 25 章｜可觀測性落地(log/metric/trace)](./ch-25-observability.md)、[第 28 章｜On-call 與事故處理](./ch-28-oncall.md)
+> **前置閱讀**:[第 25 章｜可觀測性落地(log/metric/trace)](./ch-25-observability.md)、[第 28 章｜On-call 與事故處理](./ch-28-on-call.md)
 > **下游章節**:[第 30 章｜災難復原演練](./ch-30-disaster-recovery.md)
 
 ## 29.1 共感現場:「我們的目標是零停機」
@@ -374,9 +374,9 @@ SLA 文件:https://legal.lucidpay.internal/sla/enterprise-v3
 
 ## Cross-References
 
-- **上一章**:[第 28 章｜On-call 與事故處理](./ch-28-oncall.md) ⸺ SLO 提供了判斷事故嚴重程度的數字基礎
+- **上一章**:[第 28 章｜On-call 與事故處理](./ch-28-on-call.md) ⸺ SLO 提供了判斷事故嚴重程度的數字基礎
 - **下一章**:[第 30 章｜災難復原演練](./ch-30-disaster-recovery.md) ⸺ 把「接受失敗」的態度付諸演練
 - **強連結**:[第 25 章｜可觀測性落地](./ch-25-observability.md) ⸺ SLI 的量測數據來自 metric pipeline
-- **強連結**:[第 26 章｜從告警到根因](./ch-26-debugging-production.md) ⸺ 燃燒率告警觸發後的偵錯流程
+- **強連結**:[第 26 章｜從告警到根因](./ch-26-alert-to-rootcause.md) ⸺ 燃燒率告警觸發後的偵錯流程
 - **跨書連結**:[SA/SD Playbook Ch 29｜可靠性設計](https://github.com/EddyKuo/sa-sd-playbook) ⸺ 架構層的高可用設計,與本章的實作量測互補
 

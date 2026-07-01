@@ -2,7 +2,7 @@
 chapter: 39
 part: VIII
 title: Agentic 開發:讓 Agent 跑工程任務
-slug: ch-39-agentic-dev
+slug: agentic-dev
 agent: RD
 domain_case: CASE-SAS-039
 status: draft
@@ -13,7 +13,7 @@ word_count_target: 5500
 ## ⸺ 當程式碼開始自己跑起來,你的護欄在哪裡?
 
 > **前置閱讀**:[第 37 章｜審查 AI 生成的程式碼](./ch-37-reviewing-ai-code.md)　[第 38 章｜為 AI 生成碼補測試與防護](./ch-38-testing-ai-code.md)
-> **下游章節**:[第 40 章｜Prompt 與 context 作為工程產物](./ch-40-prompt-as-artifact.md)　[第 41 章｜AI 時代的工程師心智與責任界線](./ch-41-engineer-mindset-ai.md)
+> **下游章節**:[第 40 章｜Prompt 與 context 作為工程產物](./ch-40-prompt-as-artifact.md)　[第 41 章｜AI 時代的工程師心智與責任界線](./ch-41-engineer-mindset.md)
 
 ---
 
@@ -282,8 +282,8 @@ Agentic 任務設計卡 ⸺ Rate Limit 回應帶回 retry_after
 - **前一章**:[第 38 章｜為 AI 生成碼補測試與防護](./ch-38-testing-ai-code.md) ⸺ 測試是 agentic 任務驗收標準的基礎
 - **下一章**:[第 40 章｜Prompt 與 context 作為工程產物](./ch-40-prompt-as-artifact.md) ⸺ 任務設計卡的 prompt 本身也值得版控
 - **強連結**:[第 37 章｜審查 AI 生成的程式碼](./ch-37-reviewing-ai-code.md) ⸺ 交付層的 diff review 技術
-- **強連結**:[第 41 章｜AI 時代的工程師心智與責任界線](./ch-41-engineer-mindset-ai.md) ⸺ 本章護欄背後的責任觀
-- **強連結**:[第 12 章｜契約測試與整合測試](../part-03-testing/ch-12-contract-integration-testing.md) ⸺ 外部消費者契約測試的實作技術
-- **強連結**:[第 23 章｜回滾與前向修復決策](../part-05-delivery/ch-23-rollback-decisions.md) ⸺ 可逆性評估的下游操作
+- **強連結**:[第 41 章｜AI 時代的工程師心智與責任界線](./ch-41-engineer-mindset.md) ⸺ 本章護欄背後的責任觀
+- **強連結**:[第 12 章｜契約測試與整合測試](../part-03-testing/ch-12-contract-integration.md) ⸺ 外部消費者契約測試的實作技術
+- **強連結**:[第 23 章｜回滾與前向修復決策](../part-05-delivery/ch-23-rollback.md) ⸺ 可逆性評估的下游操作
 
 ---

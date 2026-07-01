@@ -2,7 +2,7 @@
 chapter: 18
 part: IV
 title: 結對與群體程式設計的時機
-slug: ch-18-pairing
+slug: pairing
 agent: RD
 domain_case: CASE-SAS-018
 status: draft
@@ -13,7 +13,7 @@ word_count_target: 5500
 ## ⸺ 不是每件事都要兩個人,但有些事一個人真的做不好
 
 > **前置閱讀**:[第 16 章｜Code Review：看什麼、怎麼給回饋](./ch-16-code-review.md)、[第 17 章｜Pull Request 的拆分與描述](./ch-17-pull-request.md)
-> **下游章節**:[第 19 章｜跨團隊的介面契約與相依](./ch-19-interface-contract.md)
+> **下游章節**:[第 19 章｜跨團隊的介面契約與相依](./ch-19-interface-contracts.md)
 
 ## 18.1 共感現場:那個卡住的下午
 
@@ -78,7 +78,7 @@ flowchart TD
 
 第二,Code Review 是結對的「替代品」,不是「競爭者」。Review 適合「已有方向、需要找漏洞」的場景;結對適合「方向本身還需要一起找」的場景。如果你連方向都不確定,先做再 Review 的成本往往比直接結對高。
 
-記得小云的案例嗎?她面對的「跨月計費分攤」恰好落在三個維度都高的地方:邊界不清楚(不確定性高)、計費算錯要退款公告(決策成本高)、她和阿澤各自只熟悉模組的一半(知識差距存在)。三個維度一疊加,答案就很清楚了——這是結對的最佳時機,而不是等到 PR 才發現。
+記得小云的案例嗎?她面對的「跨月計費分攤」恰好落在三個維度都高的地方:邊界不清楚(不確定性高)、計費算錯要退款公告(決策成本高)、她熟悉模組實作、卻不熟計費領域的邊界情境(知識差距存在)。三個維度一疊加,答案就很清楚了——這是結對的最佳時機,而不是等到 PR 才發現。
 
 ### 18.3.1 駕駛與導航者:結對的基本角色
 
@@ -346,7 +346,7 @@ flowchart LR
 ## Cross-References
 
 - **前一章**:[第 17 章｜Pull Request 的拆分與描述](./ch-17-pull-request.md) ⸺ PR 是結對的自然後續,兩者互補
-- **下一章**:[第 19 章｜跨團隊的介面契約與相依](./ch-19-interface-contract.md) ⸺ 協作從二人延伸到跨團隊
+- **下一章**:[第 19 章｜跨團隊的介面契約與相依](./ch-19-interface-contracts.md) ⸺ 協作從二人延伸到跨團隊
 - **強連結**:[第 16 章｜Code Review：看什麼、怎麼給回饋](./ch-16-code-review.md) ⸺ Review 與結對的適用場景對比
-- **強連結**:[第 45 章｜判斷力的養成](../part-09-capstone/ch-45-judgment.md) ⸺ 結對是刻意養成判斷力的重要機制
+- **強連結**:[第 45 章｜判斷力的養成](../part-09-synthesis/ch-45-cultivating-judgment.md) ⸺ 結對是刻意養成判斷力的重要機制
 - **跨書連結**:[SA/SD Playbook Ch 30｜團隊拓撲與協作模式](https://github.com/EddyKuo/sa-sd-playbook) ⸺ 組織層級的協作設計

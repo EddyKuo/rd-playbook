@@ -2,7 +2,7 @@
 chapter: 9
 part: II
 title: 程式碼層的技術債
-slug: ch-09-tech-debt
+slug: tech-debt
 agent: RD
 domain_case: CASE-ECM-009
 status: draft
@@ -13,7 +13,7 @@ word_count_target: 5500
 ## ⸺ 不是不還,是要知道欠了什麼、利息多高
 
 > **前置閱讀**:[第 8 章｜重構的時機與安全網](./ch-08-refactoring.md)
-> **下游章節**:[第 10 章｜可測試的程式碼設計](../part-03-testing/ch-10-testable-design.md)
+> **下游章節**:[第 10 章｜可測試的程式碼設計](../part-03-testing/ch-10-testable-code.md)
 
 ## 9.1 共感現場:那個「等我有空再整理」的地方
 
@@ -324,7 +324,7 @@ Tech Debt Ledger 卡 ── TD-202503-001
 ## Cross-References
 
 - **上一章**:[第 8 章｜重構的時機與安全網](./ch-08-refactoring.md) ⸺ 還債的執行手法,重構是最主要的工具
-- **下一章**:[第 10 章｜可測試的程式碼設計](../part-03-testing/ch-10-testable-design.md) ⸺ 可測試性是預防位移債的設計決策
+- **下一章**:[第 10 章｜可測試的程式碼設計](../part-03-testing/ch-10-testable-code.md) ⸺ 可測試性是預防位移債的設計決策
 - **強連結**:[第 1 章｜為什麼工程實作需要決策框架](../part-01-foundations/ch-01-why-engineering-decisions.md) ⸺ 技術債的核心也是「判斷」問題:欠了多少、利息多高、何時還
 - **強連結**:[第 16 章｜Code Review:看什麼、怎麼給回饋](../part-04-collaboration/ch-16-code-review.md) ⸺ Code Review 是及早發現新增技術債的關口
 - **跨書連結**:[SA/SD Playbook Ch27 ⸺ 技術債的架構層處理](https://github.com/EddyKuo/sa-sd-playbook) ⸺ 本章專注程式碼層;架構層的債見 SA/SD

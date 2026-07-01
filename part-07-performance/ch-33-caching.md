@@ -2,7 +2,7 @@
 chapter: 33
 part: VII
 title: 快取的層次與失效策略
-slug: ch-33-caching
+slug: caching
 agent: RD
 domain_case: CASE-ECM-033
 status: draft

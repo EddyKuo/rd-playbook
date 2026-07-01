@@ -2,7 +2,7 @@
 chapter: 36
 part: VIII
 title: AI 輔助編碼的工作流重塑
-slug: ch-36-ai-assisted-coding
+slug: ai-assisted-coding
 agent: RD
 domain_case: CASE-SAS-036
 status: draft
@@ -13,7 +13,7 @@ word_count_target: 5500
 ## ⸺ 當產出變得廉價,如何讓判斷跟上來
 
 > **前置閱讀**:[第 1 章｜為什麼工程實作需要決策框架](../part-01-foundations/ch-01-why-engineering-decisions.md)、[第 16 章｜Code Review:看什麼、怎麼給回饋](../part-04-collaboration/ch-16-code-review.md)
-> **下游章節**:[第 37 章｜審查 AI 生成的程式碼](./ch-37-reviewing-ai-code.md)、[第 40 章｜Prompt 與 context 作為工程產物](./ch-40-prompt-as-engineering-artifact.md)
+> **下游章節**:[第 37 章｜審查 AI 生成的程式碼](./ch-37-reviewing-ai-code.md)、[第 40 章｜Prompt 與 context 作為工程產物](./ch-40-prompt-as-artifact.md)
 
 ## 36.1 共感現場:螢幕上的程式碼比你快
 
@@ -324,6 +324,6 @@ AI 輔助編碼 Context 設定卡 ⸺ 費用年度匯出 API
 - **下一章**:[第 37 章｜審查 AI 生成的程式碼](./ch-37-reviewing-ai-code.md) ⸺ 把 judge 節點展開成完整的 review 技術
 - **強連結**:[第 1 章｜為什麼工程實作需要決策框架](../part-01-foundations/ch-01-why-engineering-decisions.md) ⸺ Generate vs Judge 的根源討論
 - **強連結**:[第 16 章｜Code Review:看什麼、怎麼給回饋](../part-04-collaboration/ch-16-code-review.md) ⸺ AI 程式碼的 review 和一般 review 的異同
-- **強連結**:[第 40 章｜Prompt 與 context 作為工程產物](./ch-40-prompt-as-engineering-artifact.md) ⸺ context 設定卡的下一步:把 prompt 版本化
+- **強連結**:[第 40 章｜Prompt 與 context 作為工程產物](./ch-40-prompt-as-artifact.md) ⸺ context 設定卡的下一步:把 prompt 版本化
 - **跨書連結**:[SA/SD Playbook Ch 37 AI-Assisted Architecture](https://github.com/EddyKuo/sa-sd-playbook) ⸺ 架構層的 AI 輔助決策,與本章的實作層互補
 

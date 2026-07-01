@@ -2,7 +2,7 @@
 chapter: 22
 part: V
 title: 藍綠與金絲雀部署
-slug: ch-22-blue-green-canary
+slug: blue-green-canary
 agent: RD
 domain_case: CASE-FIN-022
 status: draft
@@ -13,7 +13,7 @@ word_count_target: 5500
 ## ⸺ 流量切換不只是技術,更是對「什麼時候能確定沒問題」的判斷
 
 > **前置閱讀**:[第 21 章｜Feature Flag 與漸進式發布](./ch-21-feature-flags.md)
-> **下游章節**:[第 23 章｜回滾與前向修復決策](./ch-23-rollback-vs-forward.md)
+> **下游章節**:[第 23 章｜回滾與前向修復決策](./ch-23-rollback.md)
 
 ---
 
@@ -52,7 +52,7 @@ word_count_target: 5500
 - 好的情況:新版沒問題,大家繼續,什麼事都沒發生。
 - 壞的情況:新版有問題,你在生產環境上有一段時間的壞狀態——時間長短,取決於你多快發現、多快能有辦法回頭。
 
-小傑第一次部署對帳模組時,用的就是傳統的滾動替換。新版上線了,舊版的 pod 被一個個關掉,等他發現 14% 的失敗率時,舊版已經沒了——他沒有一個現成的「撤退路線」。那次他花了將近四個小時,在壓力下一邊 hotfix 一邊祈禱資料沒有損壞太多。
+小傑之所以那個星期五能在兩分鐘內脫身,其實是被一年多前的另一次事故教出來的。那是他第一次部署對帳模組,用的就是傳統的滾動替換:新版上線了,舊版的 pod 被一個個關掉,等他發現一批對帳任務開始大量失敗時,舊版已經沒了——他沒有一個現成的「撤退路線」。那次他花了將近四個小時,在壓力下一邊 hotfix 一邊祈禱資料沒有損壞太多。
 
 正因為那次的教訓,他之後重新設計了部署流程,把「部署」和「發布」拆開來:
 
@@ -391,7 +391,7 @@ Stage 2 — 確認 v2.2.x 完全退場後:
 ## Cross-References
 
 - **上一章**:[第 21 章｜Feature Flag 與漸進式發布](./ch-21-feature-flags.md) ⸺ Feature Flag 是另一種「把部署和發布拆開」的工具,兩者互補
-- **下一章**:[第 23 章｜回滾與前向修復決策](./ch-23-rollback-vs-forward.md) ⸺ 金絲雀觸發回滾之後的下一步判斷
-- **強連結**:[第 24 章｜資料庫遷移與零停機變更](./ch-24-db-migration-zero-downtime.md) ⸺ 藍綠部署中 DB 兩階段遷移(Expand-Contract)的詳細手法
+- **下一章**:[第 23 章｜回滾與前向修復決策](./ch-23-rollback.md) ⸺ 金絲雀觸發回滾之後的下一步判斷
+- **強連結**:[第 24 章｜資料庫遷移與零停機變更](./ch-24-db-migration.md) ⸺ 藍綠部署中 DB 兩階段遷移(Expand-Contract)的詳細手法
 - **強連結**:[第 25 章｜可觀測性落地](../part-06-operations/ch-25-observability.md) ⸺ 本章的三層觀測指標需要可觀測性基礎設施支撐
 - **跨書連結**:[SA/SD Playbook Ch 32｜部署架構模式](https://github.com/EddyKuo/sa-sd-playbook) ⸺ 藍綠/金絲雀的架構層設計決策

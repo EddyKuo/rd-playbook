@@ -2,7 +2,7 @@
 chapter: 13
 part: III
 title: 測試替身的取捨
-slug: ch-13-test-doubles
+slug: test-doubles
 agent: RD
 domain_case: CASE-FIN-013
 status: draft

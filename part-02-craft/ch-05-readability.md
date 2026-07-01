@@ -2,7 +2,7 @@
 chapter: 5
 part: II
 title: 可讀性:為下一個人而寫
-slug: ch-05-readability
+slug: readability
 agent: RD
 domain_case: CASE-HCR-005
 status: draft
@@ -13,7 +13,7 @@ word_count_target: 5500
 ## ⸺ 三個月後,你自己也是那個「下一個人」
 
 > **前置閱讀**:[第 1 章｜為什麼工程實作需要決策框架](../part-01-foundations/ch-01-why-engineering-decisions.md)——交付前第④問「別人讀得懂嗎」正是本章的展開
-> **下游章節**:[第 6 章｜命名、抽象與邊界](./ch-06-naming-abstraction-boundary.md)——可讀性的下一層:命名決策的細節
+> **下游章節**:[第 6 章｜命名、抽象與邊界](./ch-06-naming-abstraction.md)——可讀性的下一層:命名決策的細節
 
 ## 5.1 共感現場:那段「昨天還看得懂」的程式碼
 
@@ -134,10 +134,10 @@ def compute_weighted_score(blood_pressure_score, cholesterol_score,
 def classify_risk_level(weighted_score):
     """依臨床協定將分數對應到風險等級。"""
     if weighted_score > 7.5:
-        return 'HIGH'
+        return 'H'
     if weighted_score > 4.0:
-        return 'MEDIUM'
-    return 'LOW'
+        return 'M'
+    return 'L'
 
 def evaluate_patient_risk(patient_vitals, age_weight, visit_frequency_weight):
     """整合入口:從病患基礎數值計算並回傳風險等級。"""
@@ -331,7 +331,7 @@ result = sorted(filter(lambda x: x['active'], get_patients()), key=lambda p: p['
 ## Cross-References
 
 - **前一章**:[第 4 章｜版本控制策略](../part-01-foundations/ch-04-version-control.md) ⸺ commit 描述的可讀性,與程式碼命名同一個道理
-- **下一章**:[第 6 章｜命名、抽象與邊界](./ch-06-naming-abstraction-boundary.md) ⸺ 命名決策的細節展開
+- **下一章**:[第 6 章｜命名、抽象與邊界](./ch-06-naming-abstraction.md) ⸺ 命名決策的細節展開
 - **強連結**:[第 1 章｜為什麼工程實作需要決策框架](../part-01-foundations/ch-01-why-engineering-decisions.md) ⸺ 本章展開的是第④問「別人讀得懂嗎」
 - **強連結**:[第 8 章｜重構的時機與安全網](./ch-08-refactoring.md) ⸺ 可讀性改善與重構的關係
 - **強連結**:[第 16 章｜Code Review:看什麼、怎麼給回饋](../part-04-collaboration/ch-16-code-review.md) ⸺ 可讀性是 Code Review 的核心審查面向

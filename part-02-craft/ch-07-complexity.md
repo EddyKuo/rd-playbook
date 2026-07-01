@@ -2,7 +2,7 @@
 chapter: 7
 part: II
 title: 控制複雜度
-slug: ch-07-complexity
+slug: complexity
 agent: RD
 domain_case: CASE-SAS-007
 status: draft
@@ -74,7 +74,7 @@ def can_access_feature(user, feature, tenant):
 | 11–20 | 偏高 | 考慮拆分 |
 | 21+ | 很高,難以安全修改 | 優先重構 |
 
-小雅那段函式,大約落在 15 左右。這解釋了為什麼她「每次看都覺得對」:大腦在追蹤時只看了其中幾條路,沒有同時涵蓋所有分支的組合。
+小雅那段函式,大約落在 13 左右。這解釋了為什麼她「每次看都覺得對」:大腦在追蹤時只看了其中幾條路,沒有同時涵蓋所有分支的組合。
 
 也就是說,問題不是她不仔細——而是**這段程式碼的可能路徑數,已經超過人腦短期記憶能同時持有的量**。當可能路徑爆炸,「改了這邊、壞了那邊」幾乎是必然的,而不是偶然的失誤。
 
@@ -300,7 +300,7 @@ return (user.is_admin and tenant.is_enterprise and feature.requires_enterprise) 
   if/elif/else 共 11 個分支 + 2 個布林欄位存取
   當前複雜度約:13
   <!-- 為什麼這欄:複雜度超過 10,代表你至少需要 13 個測試案例
-       才能讓每條路徑都被走過一次;現有測試只有 4 個,
+       才能讓每條路徑都被走過一次;現有測試只有 1 個,
        所以並不是她沒仔細,是測試本來就沒覆蓋那條路。 -->
   是否超過 10?是
 
@@ -369,6 +369,6 @@ return (user.is_admin and tenant.is_enterprise and feature.requires_enterprise) 
 
 - **前一章**:[第 6 章｜命名、抽象與邊界](./ch-06-naming-abstraction.md) ⸺ 好的命名讓複雜的判斷變得可讀
 - **下一章**:[第 8 章｜重構的時機與安全網](./ch-08-refactoring.md) ⸺ 複雜度累積到臨界點時,如何安全地整理
-- **強連結**:[第 10 章｜可測試的程式碼設計](../part-03-testing/ch-10-testable-design.md) ⸺ 高複雜度與低可測試性幾乎是同一個問題的兩種說法
-- **強連結**:[第 11 章｜單元測試與 TDD 的落地](../part-03-testing/ch-11-unit-testing-tdd.md) ⸺ 圈複雜度直接決定你需要幾個測試案例
+- **強連結**:[第 10 章｜可測試的程式碼設計](../part-03-testing/ch-10-testable-code.md) ⸺ 高複雜度與低可測試性幾乎是同一個問題的兩種說法
+- **強連結**:[第 11 章｜單元測試與 TDD 的落地](../part-03-testing/ch-11-unit-tdd.md) ⸺ 圈複雜度直接決定你需要幾個測試案例
 - **跨書連結**:[SA/SD Playbook](https://github.com/EddyKuo/sa-sd-playbook) ⸺ 程式碼層的複雜度,常常是設計層邊界模糊的投影

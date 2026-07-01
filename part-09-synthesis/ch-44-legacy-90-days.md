@@ -2,7 +2,7 @@
 chapter: 44
 part: IX
 title: 接手 legacy 系統的 90 天計畫
-slug: ch-44-legacy-90-days
+slug: legacy-90-days
 agent: RD
 domain_case: CASE-HCR-044
 status: draft
@@ -13,7 +13,7 @@ word_count_target: 5500
 ## ⸺ 先讀懂它在解決什麼問題,再談要不要改
 
 > **前置閱讀**:[第 2 章｜讀懂一份陌生程式碼](../part-01-foundations/ch-02-reading-unfamiliar-code.md)、[第 8 章｜重構的時機與安全網](../part-02-craft/ch-08-refactoring.md)
-> **下游章節**:[第 45 章｜判斷力的養成:當階梯被 AI 抽掉](./ch-45-judgment.md)、[第 26 章｜從告警到根因:生產環境除錯](../part-06-operations/ch-26-debugging-production.md)
+> **下游章節**:[第 45 章｜判斷力的養成:當階梯被 AI 抽掉](./ch-45-cultivating-judgment.md)、[第 26 章｜從告警到根因:生產環境除錯](../part-06-operations/ch-26-alert-to-rootcause.md)
 
 ## 44.1 共感現場:那第一天的感受
 
@@ -388,9 +388,9 @@ Legacy 接手計畫書 ⸺ MedLink EMR Core
 ## Cross-References
 
 - **前一章**:[第 43 章｜一次生產事故的完整復盤](./ch-43-incident-postmortem.md) ⸺ 事故復盤裡常見的問題,很多起點都在 legacy 系統的技術債
-- **下一章**:[第 45 章｜判斷力的養成:當階梯被 AI 抽掉](./ch-45-judgment.md) ⸺ 接手 legacy 系統是培養 L3/L4 判斷力的天然環境
+- **下一章**:[第 45 章｜判斷力的養成:當階梯被 AI 抽掉](./ch-45-cultivating-judgment.md) ⸺ 接手 legacy 系統是培養 L3/L4 判斷力的天然環境
 - **強連結**:[第 2 章｜讀懂一份陌生程式碼](../part-01-foundations/ch-02-reading-unfamiliar-code.md) ⸺ 第一個月「讀懂」階段的方法論在這裡
 - **強連結**:[第 8 章｜重構的時機與安全網](../part-02-craft/ch-08-refactoring.md) ⸺ 第三階段漸進改善的實作技術
-- **強連結**:[第 10 章｜可測試的程式碼設計](../part-03-testing/ch-10-testable-design.md) ⸺ 特徵測試怎麼設計讓它不脆弱
-- **強連結**:[第 9 章｜程式碼層的技術債](../part-02-craft/ch-09-technical-debt.md) ⸺ 第一階段讀懂後,怎麼記錄和評估技術債
+- **強連結**:[第 10 章｜可測試的程式碼設計](../part-03-testing/ch-10-testable-code.md) ⸺ 特徵測試怎麼設計讓它不脆弱
+- **強連結**:[第 9 章｜程式碼層的技術債](../part-02-craft/ch-09-tech-debt.md) ⸺ 第一階段讀懂後,怎麼記錄和評估技術債
 - **跨書連結**:[SA/SD Playbook Ch 8 ⸺ 演化式架構](https://github.com/EddyKuo/sa-sd-playbook) ⸺ 漸進改善的系統設計高度在 SA/SD 有對應章節

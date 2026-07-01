@@ -2,7 +2,7 @@
 chapter: 42
 part: IX
 title: 從設計到上線:一個完整功能的實作全紀錄
-slug: ch-42-feature-end-to-end
+slug: feature-end-to-end
 agent: RD
 domain_case: CASE-SAS-042
 status: draft
@@ -13,7 +13,7 @@ word_count_target: 5500
 ## ⸺ 一條龍走一遍,才知道哪裡最容易斷
 
 > **前置閱讀**:[第 17 章｜Pull Request 的拆分與描述](../part-04-collaboration/ch-17-pull-request.md)、[第 20 章｜CI/CD 流水線設計](../part-05-delivery/ch-20-cicd.md)、[第 25 章｜可觀測性落地](../part-06-operations/ch-25-observability.md)
-> **下游章節**:[第 43 章｜一次生產事故的完整復盤](./ch-43-incident-postmortem.md)、[第 45 章｜判斷力的養成:當階梯被 AI 抽掉](./ch-45-judgment-cultivation.md)
+> **下游章節**:[第 43 章｜一次生產事故的完整復盤](./ch-43-incident-postmortem.md)、[第 45 章｜判斷力的養成:當階梯被 AI 抽掉](./ch-45-cultivating-judgment.md)
 
 ## 42.1 共感現場:「功能做完了,然後呢?」
 
@@ -377,5 +377,5 @@ PM 做的驗收是「功能對不對」,不是「工程行為正不正常」。L
 - **強連結**:[第 17 章｜Pull Request 的拆分與描述](../part-04-collaboration/ch-17-pull-request.md) ⸺ 本章第④步的詳細展開
 - **強連結**:[第 20 章｜CI/CD 流水線設計](../part-05-delivery/ch-20-cicd.md) ⸺ CI 流水線在本章流程中的位置
 - **強連結**:[第 25 章｜可觀測性落地](../part-06-operations/ch-25-observability.md) ⸺ 本章第⑤⑥步的技術基礎
-- **強連結**:[第 45 章｜判斷力的養成](./ch-45-judgment-cultivation.md) ⸺ 本章六步其實是判斷力的一次完整演練
+- **強連結**:[第 45 章｜判斷力的養成](./ch-45-cultivating-judgment.md) ⸺ 本章六步其實是判斷力的一次完整演練
 - **跨書連結**:[SA/SD Playbook](https://github.com/EddyKuo/sa-sd-playbook) ⸺ 本章接在「設計已確認」之後;設計高度的決策在 SA/SD 討論

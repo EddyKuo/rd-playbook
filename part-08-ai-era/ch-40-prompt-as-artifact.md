@@ -2,7 +2,7 @@
 chapter: 40
 part: VIII
 title: Prompt 與 context 作為工程產物
-slug: ch-40-prompt-as-artifact
+slug: prompt-as-artifact
 agent: RD
 domain_case: CASE-SAS-040
 status: draft
@@ -12,8 +12,8 @@ word_count_target: 5500
 # 第 40 章｜Prompt 與 context 作為工程產物
 ## ⸺ 當你把 prompt 存進 Git,它才開始有資格被叫做「工程」
 
-> **前置閱讀**:[第 39 章｜Agentic 開發:讓 agent 跑工程任務](./ch-39-agentic-development.md)
-> **下游章節**:[第 41 章｜AI 時代的工程師心智與責任界線](./ch-41-engineer-mindset-ai-era.md)
+> **前置閱讀**:[第 39 章｜Agentic 開發:讓 agent 跑工程任務](./ch-39-agentic-dev.md)
+> **下游章節**:[第 41 章｜AI 時代的工程師心智與責任界線](./ch-41-engineer-mindset.md)
 
 ---
 
@@ -455,10 +455,10 @@ changelog:
 
 ## Cross-References
 
-- **上一章**:[第 39 章｜Agentic 開發:讓 agent 跑工程任務](./ch-39-agentic-development.md) ⸺ 理解 agent 如何使用 prompt 與 context,是本章的前提
-- **下一章**:[第 41 章｜AI 時代的工程師心智與責任界線](./ch-41-engineer-mindset-ai-era.md) ⸺ prompt 版控解決「可追溯」;這章解決「責任歸屬」
+- **上一章**:[第 39 章｜Agentic 開發:讓 agent 跑工程任務](./ch-39-agentic-dev.md) ⸺ 理解 agent 如何使用 prompt 與 context,是本章的前提
+- **下一章**:[第 41 章｜AI 時代的工程師心智與責任界線](./ch-41-engineer-mindset.md) ⸺ prompt 版控解決「可追溯」;這章解決「責任歸屬」
 - **強連結**:[第 37 章｜審查 AI 生成的程式碼](./ch-37-reviewing-ai-code.md) ⸺ prompt 的品質直接影響需要審查的 AI 輸出品質
-- **強連結**:[第 38 章｜為 AI 生成碼補測試與防護](./ch-38-testing-ai-generated-code.md) ⸺ prompt 測試與 AI 生成碼的測試策略可互相參照
-- **強連結**:[第 4 章｜版本控制策略](../part-01-foundations/ch-04-version-control-strategy.md) ⸺ commit 衛生與分支模型同樣適用於 prompt 版控
-- **強連結**:[第 15 章｜與 CI 整合的測試流水線](../part-03-testing/ch-15-ci-test-pipeline.md) ⸺ prompt golden cases 可以整合進 CI 自動執行
+- **強連結**:[第 38 章｜為 AI 生成碼補測試與防護](./ch-38-testing-ai-code.md) ⸺ prompt 測試與 AI 生成碼的測試策略可互相參照
+- **強連結**:[第 4 章｜版本控制策略](../part-01-foundations/ch-04-version-control.md) ⸺ commit 衛生與分支模型同樣適用於 prompt 版控
+- **強連結**:[第 15 章｜與 CI 整合的測試流水線](../part-03-testing/ch-15-ci-testing.md) ⸺ prompt golden cases 可以整合進 CI 自動執行
 - **跨書連結**:[SA/SD Playbook Ch 40](https://github.com/EddyKuo/sa-sd-playbook) ⸺ 系統設計高度的 AI 整合決策

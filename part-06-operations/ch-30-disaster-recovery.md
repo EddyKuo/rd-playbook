@@ -2,7 +2,7 @@
 chapter: 30
 part: VI
 title: 災難復原演練
-slug: ch-30-disaster-recovery
+slug: disaster-recovery
 agent: RD
 domain_case: CASE-FIN-030
 status: draft
@@ -12,8 +12,8 @@ word_count_target: 5500
 # 第 30 章｜災難復原演練
 ## ⸺ 真正的備份,是你演練過的那一份
 
-> **前置閱讀**:[第 29 章｜SLO/錯誤預算的實作面](./ch-29-slo-error-budget.md)
-> **下游章節**:[第 31 章｜效能量測先於優化](../part-07-reliability/ch-31-measure-before-optimize.md)
+> **前置閱讀**:[第 29 章｜SLO/錯誤預算的實作面](./ch-29-slo.md)
+> **下游章節**:[第 31 章｜效能量測先於優化](../part-07-performance/ch-31-measure-first.md)
 
 ## 30.1 共感現場:那個「有備份」的禮拜五下午
 
@@ -241,7 +241,7 @@ flowchart TD
    備份位置: s3://jf-pay-backup/pg-main/
 
 四、還原流程(Runbook 連結)
-   Runbook 版本: v1.2 (更新於 2026-05-10,已含 PG16 還原語法)
+   Runbook 版本: v1.2 (更新於 2026-05-10,PG16 還原語法尚未完整同步)
    <!-- 為什麼這欄:標記版本日期很重要。上次事故的根因之一,
         就是 Runbook 停在 PG14 的語法,升版時沒有同步更新。
         此欄讓日後的審查者能立刻發現文件是否過時。 -->
@@ -293,8 +293,8 @@ flowchart TD
 
 ## Cross-References
 
-- **下一章**:[第 31 章｜效能量測先於優化](../part-07-reliability/ch-31-measure-before-optimize.md) ⸺ 系統恢復後,怎麼確認效能水位
-- **強連結**:[第 28 章｜On-call 與事故處理](./ch-28-on-call-incident.md) ⸺ 遊戲日是 on-call 的平時演習
-- **強連結**:[第 29 章｜SLO/錯誤預算的實作面](./ch-29-slo-error-budget.md) ⸺ RTO/RPO 目標與 SLO 互為表裡
+- **下一章**:[第 31 章｜效能量測先於優化](../part-07-performance/ch-31-measure-first.md) ⸺ 系統恢復後,怎麼確認效能水位
+- **強連結**:[第 28 章｜On-call 與事故處理](./ch-28-on-call.md) ⸺ 遊戲日是 on-call 的平時演習
+- **強連結**:[第 29 章｜SLO/錯誤預算的實作面](./ch-29-slo.md) ⸺ RTO/RPO 目標與 SLO 互為表裡
 - **強連結**:[第 25 章｜可觀測性落地](./ch-25-observability.md) ⸺ 演練中的健康確認,依賴 metric 與 log
 - **跨書連結**:(外部連結) [SA/SD Playbook — Ch 29 可用性設計](https://github.com/EddyKuo/sa-sd-playbook) ⸺ RTO/RPO 目標的設計高度屬於系統設計層;本章與 SA/SD Playbook 的 Ch 29 可用性設計互為延伸

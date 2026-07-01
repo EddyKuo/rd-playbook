@@ -2,7 +2,7 @@
 chapter: 24
 part: V
 title: 資料庫遷移與零停機變更
-slug: ch-24-db-migration
+slug: db-migration
 agent: RD
 domain_case: CASE-FIN-024
 status: draft

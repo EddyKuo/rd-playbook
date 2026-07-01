@@ -2,7 +2,7 @@
 chapter: 28
 part: VI
 title: On-call 與事故處理
-slug: ch-28-on-call
+slug: on-call
 agent: RD
 domain_case: CASE-FIN-028
 status: draft
@@ -12,9 +12,9 @@ word_count_target: 5500
 # 第 28 章｜On-call 與事故處理
 ## ⸺ 凌晨三點的告警,考的不是技術,是判斷
 
-> **前置閱讀**:[第 26 章｜從告警到根因:生產環境除錯](./ch-26-production-debugging.md) ⸺ 學會讀告警、定位問題再來這章
+> **前置閱讀**:[第 26 章｜從告警到根因:生產環境除錯](./ch-26-alert-to-rootcause.md) ⸺ 學會讀告警、定位問題再來這章
 > **前置閱讀**:[第 25 章｜可觀測性落地](./ch-25-observability.md) ⸺ 事故處理的資訊來源
-> **下游章節**:[第 29 章｜SLO/錯誤預算的實作面](./ch-29-slo-error-budget.md) ⸺ 事故之後,用數據守住邊界
+> **下游章節**:[第 29 章｜SLO/錯誤預算的實作面](./ch-29-slo.md) ⸺ 事故之後,用數據守住邊界
 
 ## 28.1 共感現場:那通凌晨三點的電話
 
@@ -429,8 +429,8 @@ Action Items:
 ## Cross-References
 
 - **前置**:[第 25 章｜可觀測性落地](./ch-25-observability.md) ⸺ Runbook 裡的每個指令,都仰賴可觀測性(Observability)基礎設施提供的資訊
-- **前置**:[第 26 章｜從告警到根因:生產環境除錯](./ch-26-production-debugging.md) ⸺ 止血後的根因分析,延續這一章的除錯方法
-- **下一章**:[第 29 章｜SLO/錯誤預算的實作面](./ch-29-slo-error-budget.md) ⸺ 事故發生後,用錯誤預算數據決定下一步怎麼走
-- **強連結**:[第 23 章｜回滾與前向修復決策](../part-05-delivery/ch-23-rollback-decisions.md) ⸺ 止血手段裡的「回滾(Rollback)」,這章有更完整的判斷框架
-- **強連結**:[第 43 章｜一次生產事故的完整復盤](../part-09-capstone/ch-43-incident-postmortem.md) ⸺ 把本章的 Postmortem 框架展開成完整的復盤案例
+- **前置**:[第 26 章｜從告警到根因:生產環境除錯](./ch-26-alert-to-rootcause.md) ⸺ 止血後的根因分析,延續這一章的除錯方法
+- **下一章**:[第 29 章｜SLO/錯誤預算的實作面](./ch-29-slo.md) ⸺ 事故發生後,用錯誤預算數據決定下一步怎麼走
+- **強連結**:[第 23 章｜回滾與前向修復決策](../part-05-delivery/ch-23-rollback.md) ⸺ 止血手段裡的「回滾(Rollback)」,這章有更完整的判斷框架
+- **強連結**:[第 43 章｜一次生產事故的完整復盤](../part-09-synthesis/ch-43-incident-postmortem.md) ⸺ 把本章的 Postmortem 框架展開成完整的復盤案例
 - **跨書連結**:[SA/SD Playbook Ch 30｜可靠性工程治理](https://github.com/EddyKuo/sa-sd-playbook) ⸺ SLO、錯誤預算、Chaos Engineering 的架構層設計

@@ -2,7 +2,7 @@
 chapter: 37
 part: VIII
 title: 審查 AI 生成的程式碼
-slug: ch-37-reviewing-ai-code
+slug: reviewing-ai-code
 agent: RD
 domain_case: CASE-FIN-037
 status: draft
@@ -13,7 +13,7 @@ word_count_target: 5500
 ## ⸺ Generate 很快,Judge 才是你留下來的理由
 
 > **前置閱讀**:[第 1 章｜為什麼工程實作需要決策框架](../part-01-foundations/ch-01-why-engineering-decisions.md) ⸺ 交付前四問是本章的判斷基礎
-> **前置閱讀**:[第 36 章｜AI 輔助編碼的工作流重塑](./ch-36-ai-coding-workflow.md) ⸺ 了解 AI 如何融入開發流程
+> **前置閱讀**:[第 36 章｜AI 輔助編碼的工作流重塑](./ch-36-ai-assisted-coding.md) ⸺ 了解 AI 如何融入開發流程
 > **下游章節**:[第 38 章｜為 AI 生成碼補測試與防護](./ch-38-testing-ai-code.md) ⸺ 審查之後的防護網
 
 ## 37.1 共感現場:「它測試都有過,應該沒問題吧」
@@ -411,7 +411,7 @@ AI 程式碼審查單 ⸺ 手續費計算服務 (fee-calculator.go)
 
 ## Cross-References
 
-- **前一章**:[第 36 章｜AI 輔助編碼的工作流重塑](./ch-36-ai-coding-workflow.md) ⸺ 了解 AI 如何融入開發流程,是本章審查的前提
+- **前一章**:[第 36 章｜AI 輔助編碼的工作流重塑](./ch-36-ai-assisted-coding.md) ⸺ 了解 AI 如何融入開發流程,是本章審查的前提
 - **下一章**:[第 38 章｜為 AI 生成碼補測試與防護](./ch-38-testing-ai-code.md) ⸺ 審查通過只是第一步,補測試才讓它真正安全
 - **強連結**:[第 1 章｜為什麼工程實作需要決策框架](../part-01-foundations/ch-01-why-engineering-decisions.md) ⸺ 交付前四問是本章六個維度的基礎
 - **強連結**:[第 16 章｜Code Review:看什麼、怎麼給回饋](../part-04-collaboration/ch-16-code-review.md) ⸺ 本章的六維框架是 Code Review 在 AI 場景下的延伸
