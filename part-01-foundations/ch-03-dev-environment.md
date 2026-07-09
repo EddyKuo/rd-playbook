@@ -503,7 +503,7 @@ A: pg_isready 是 PostgreSQL client 工具。執行 brew install libpq &&
 
 - **上一章**:[第 2 章｜讀懂一份陌生程式碼](./ch-02-reading-unfamiliar-code.md) ⸺ 讀懂程式碼的前提,是能把服務跑起來
 - **下一章**:[第 4 章｜版本控制策略](./ch-04-version-control.md) ⸺ 環境對齊之後,下一步是讓改動可追蹤
-- **強連結**:[第 14 章｜測試資料與測試環境](../part-03-testing/ch-14-test-data.md) ⸺ 本章談本機環境;第 14 章談測試環境的隔離與資料策略
-- **強連結**:[第 15 章｜與 CI 整合的測試流水線](../part-03-testing/ch-15-ci-testing.md) ⸺ 本機的 pre-commit hook 和 CI 流水線是同一條防線的兩端
-- **強連結**:[第 20 章｜CI/CD 流水線設計](../part-05-delivery/ch-20-cicd.md) ⸺ 本機環境盡量對齊 CI 環境,才能讓「本機能跑」等於「CI 能跑」
+- **強連結**:[第 15 章｜測試資料與測試環境](../part-03-testing/ch-15-test-data.md) ⸺ 本章談本機環境;第 15 章談測試環境的隔離與資料策略
+- **強連結**:[第 16 章｜與 CI 整合的測試流水線](../part-03-testing/ch-16-ci-testing.md) ⸺ 本機的 pre-commit hook 和 CI 流水線是同一條防線的兩端
+- **強連結**:[第 21 章｜CI/CD 流水線設計](../part-05-delivery/ch-21-cicd.md) ⸺ 本機環境盡量對齊 CI 環境,才能讓「本機能跑」等於「CI 能跑」
 - **跨書連結**:[SA/SD Playbook](https://github.com/EddyKuo/sa-sd-playbook) ⸺ 容器化環境的設計決策屬於基礎設施架構高度,SA/SD 第 32–36 章有深入討論

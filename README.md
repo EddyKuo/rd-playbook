@@ -11,7 +11,7 @@
 
 ## 狀態
 
-✍️ **初稿完成** — 全書 9 部 46 章 + 9 篇導讀 + 序章已完稿,並完成連結校對、Mermaid 語法與前後文邏輯一致性審查。章節 frontmatter 狀態仍標記為 `draft`,尚待正式 review/approved 流程。
+✍️ **初稿完成** — 全書 9 部 47 章 + 9 篇導讀 + 序章已完稿,並完成連結校對、Mermaid 語法與前後文邏輯一致性審查。章節 frontmatter 狀態仍標記為 `draft`,尚待正式 review/approved 流程。
 
 定位說明書與章節大綱詳見 [`memo/positioning.md`](memo/positioning.md)。
 

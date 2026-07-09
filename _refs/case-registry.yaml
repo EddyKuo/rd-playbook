@@ -28,7 +28,7 @@ cases:
   title: Cartly 商品評論功能測試環境污染事件
   domain: ecm
   chapters:
-  - ch-14
+  - ch-15
   summary: |
     Cartly 是一家虛構的線上購物平台。工程師小燕為商品評論功能補寫整合測試,
     在本機全數通過,但推上 CI 後因資料庫殘留前一輪資料,導致評論數量斷言失敗
@@ -39,7 +39,7 @@ cases:
   title: ClearFund 轉帳手續費計算模組的脆弱測試危機
   domain: fin
   chapters:
-  - ch-11
+  - ch-12
   summary: |
     ClearFund 是一家虛構的金融科技公司,提供企業轉帳清算服務。
     工程師小佳負責手續費計算模組,擁有四十幾支單元測試且全數通過 CI。
@@ -52,7 +52,7 @@ cases:
   title: ClearPay 交易授權服務的測試替身漂移事件
   domain: fin
   chapters:
-  - ch-13
+  - ch-14
   summary: |
     ClearPay 是一家虛構支付公司,其交易授權服務對接外部風控 API(RiskEvaluation API)。
     工程師小雅將外部風控 API 完整 mock 後跑出全綠的 CI,但 mock 格式已落後真實 API
@@ -65,7 +65,7 @@ cases:
   title: ClearPay 支付閘道與帳戶服務的 Pact 契約測試
   domain: fin
   chapters:
-  - ch-12
+  - ch-13
   summary: |
     ClearPay 是一家虛構的台灣金融科技公司,旗下有兩個微服務:負責清算的支付
     閘道服務(Payment Gateway,消費者)和負責帳戶餘額的帳戶服務(Account Service,
@@ -78,7 +78,7 @@ cases:
   title: Lumivita Health 病患風險評分函式重構
   domain: hcr
   chapters:
-  - ch-05
+  - ch-06
   summary: |
     Lumivita Health 電子病歷系統的風險等級計算函式(evaluate_patient_risk),
     最初以單字母縮寫命名參數(p['b'], p['c'], t, v)並混合加權計算與分類邏輯於同一函式。
@@ -89,7 +89,7 @@ cases:
   title: CareLink 病患風險評分模組可測試性重構
   domain: hcr
   chapters:
-  - ch-10
+  - ch-11
   summary: |
     CareLink 是一家 HIS(醫院資訊系統)公司。工程師小雯實作病患風險評分模組時,
     將資料庫查詢、全域設定讀取、系統時間取得全部耦合在單一函式內(calculate_risk_score),
@@ -115,7 +115,7 @@ cases:
   title: Nexthread 多租戶授權複雜度失控
   domain: sas
   chapters:
-  - ch-07
+  - ch-08
   summary: |
     Nexthread 是一家虛構的多租戶 SaaS 公司,提供客服與協作工具。
     其計費與權限模組的 can_access_feature 函式,因為多次迭代疊加方案條件
@@ -128,7 +128,7 @@ cases:
   title: Kova SaaS 帳單計算模組 Code Review 事件
   domain: sas
   chapters:
-  - ch-16
+  - ch-17
   summary: |
     Kova 是一家多租戶 SaaS 計費平台。工程師小琪提交帳單計算模組 PR-247,
     含 calculateProration() 除以零漏洞與支付失敗靜默吞錯兩個正確性缺陷,
@@ -141,7 +141,7 @@ cases:
   title: CanvasShop 促銷模組命名與邊界重整
   domain: ecm
   chapters:
-  - ch-06
+  - ch-07
   summary: |
     品牌電商平台 CanvasShop 的促銷模組,因早期以 handleData() 作為主函式命名,
     導致後續兩年間多位工程師不斷往同一函式添加邏輯,最終形成超過 200 行、
@@ -155,7 +155,7 @@ cases:
   title: BuyNow 的 processOrder() 技術債危機
   domain: ecm
   chapters:
-  - ch-09
+  - ch-10
   summary: |
     BuyNow 是一個經營三年的電商訂單系統。核心方法 processOrder() 累積了
     五百行程式碼與四層 if-else 巢狀——起初設計合理,但三年來每次新功能都
@@ -169,7 +169,7 @@ cases:
   title: 蝦皮拼拼訂單篩選功能後端 API
   domain: ecm
   chapters:
-  - ch-17
+  - ch-18
   summary: |
     虛構電商 SaaS 平台「蝦皮拼拼」的賣家後台訂單篩選功能。
     工程師小琳將 schema migration、前端介面與後端 API 拆成三個獨立 PR 依序合併,
@@ -181,7 +181,7 @@ cases:
   title: MedChart 處方簽核模組重構
   domain: hcr
   chapters:
-  - ch-08
+  - ch-09
   summary: |
     MedChart 是一家虛構的醫療科技公司,提供電子病歷(EMR)系統。
     工程師小葦負責維護一個已運行四年的處方簽核(Prescription Validation)模組,
@@ -195,7 +195,7 @@ cases:
   title: Kronway 支付對帳模組藍綠部署事件
   domain: fin
   chapters:
-  - ch-22
+  - ch-23
   summary: |
     Kronway 是一家做企業 SaaS 的虛構公司,旗下支付對帳模組在一次修正精度
     計算邏輯的版本上線時,因舊格式資料邊界案例(amount_precision 欄位儲存
@@ -208,7 +208,7 @@ cases:
   title: FinPulse 帳務狀態欄 VARCHAR→ENUM 零停機升級
   domain: fin
   chapters:
-  - ch-24
+  - ch-25
   summary: |
     FinPulse 是一家虛構的支付清算 SaaS 公司,服務數十家中小型支付機構。
     其 transactions 表的 status 欄需從 VARCHAR(20) 升級為 ENUM 型別,
@@ -220,7 +220,7 @@ cases:
   title: CartFlow 結帳頁面效能危機(促銷高峰外部 API 長尾)
   domain: ecm
   chapters:
-  - ch-32
+  - ch-33
   summary: |
     虛構電商平台 CartFlow 在雙十一促銷期間,結帳 API p99 從 800ms
     飆至 3,200ms。工程師初步懷疑為資料庫問題並加入 Redis 快取,
@@ -233,7 +233,7 @@ cases:
   title: ClearPay 支付平台清算閘道器事件
   domain: fin
   chapters:
-  - ch-26
+  - ch-27
   summary: |
     虛構支付平台 ClearPay 於 2026-03-15 凌晨因外部清算閘道器(TrustGate)
     計畫外維護,導致支付成功率從 98% 驟降至 61%,p99 延遲飆至 8.2 秒。
@@ -245,7 +245,7 @@ cases:
   title: CartNova 商品詳情頁的快取危機
   domain: ecm
   chapters:
-  - ch-33
+  - ch-34
   summary: |
     CartNova 是一個電商平台。工程師小薇在商品詳情頁加入 Redis 快取(統一 TTL 10 分鐘),
     p99 延遲初期下降明顯。但兩個月後出現兩個問題:促銷活動開始前快取集體過期,
@@ -257,7 +257,7 @@ cases:
   title: ShopStream 萬人搶購並發事故
   domain: ecm
   chapters:
-  - ch-34
+  - ch-35
   summary: |
     虛構電商平台 ShopStream 在限時快閃活動中,流量從每秒 80 筆暴增至 1,200 筆,
     導致訂單服務同時出現三類並發問題:庫存競態條件(庫存變負數)、
@@ -268,7 +268,7 @@ cases:
   title: CartWave 電商商品列表 API 效能優化
   domain: ecm
   chapters:
-  - ch-31
+  - ch-32
   summary: |
     虛構電商平台 CartWave 的訂單管理系統商品列表 API 出現回應時間過慢(p99 = 3.2s)
     的問題。工程師阿宇在未先量測的情況下直覺優化程式碼三天,效果有限(p99 降至 3.0s)。
@@ -279,7 +279,7 @@ cases:
   title: Finyuan 清算排程偶發超時
   domain: fin
   chapters:
-  - ch-27
+  - ch-28
   summary: |
     泛遠金融科技(Finyuan)的清算排程系統在每日凌晨批次作業期間,
     偶發性超時(10 次中約 2 次),p99 latency 超過 30s 但 average 正常。
@@ -291,7 +291,7 @@ cases:
   title: Loomify Rate Limit Response Format Migration
   domain: sas
   chapters:
-  - ch-39
+  - ch-40
   summary: |
     Loomify 是一家協作文件 SaaS 公司。工程師小韋使用 agentic 開發工具將
     API rate limit 回應格式從純 HTTP 429 改為帶 retry_after 欄位的 JSON body。
@@ -302,7 +302,7 @@ cases:
   title: Flowcast 帳單計費模組:跨月分攤邏輯的結對決策
   domain: sas
   chapters:
-  - ch-18
+  - ch-19
   summary: |
     Flowcast 是一家多租戶 SaaS 公司。工程師小云在獨立開發帳單計費模組時,
     因缺乏第二視角,在 PR 才被發現跨月升降方案的邊界情境未處理。
@@ -314,7 +314,7 @@ cases:
   title: Nova Spend 費用管理平台 AI 輔助開發重整
   domain: sas
   chapters:
-  - ch-36
+  - ch-37
   summary: |
     Nova Spend 是一家多租戶 SaaS 費用管理平台,引入 AI 輔助編碼(GitHub Copilot +
     內部自建的 Claude 3.7 Sonnet 代理)後開發速度大幅提升,sprint story points 完成率
@@ -329,7 +329,7 @@ cases:
   title: Paytide 跨幣別手續費負數事件
   domain: fin
   chapters:
-  - ch-38
+  - ch-39
   summary: |
     Paytide 是一家做法人支付清算的 FinTech 公司。工程師小薇用 AI 助手實作
     「跨幣別轉帳手續費計算」功能:依轉帳金額、目標幣別、來源銀行代碼查費率表,
@@ -342,7 +342,7 @@ cases:
   title: LucidPay 轉帳服務 SLO 重整
   domain: fin
   chapters:
-  - ch-29
+  - ch-30
   summary: |
     LucidPay 為一家虛構的支付公司,轉帳核心服務(transfer-api)在未定義
     SLI/SLO 的情況下設下「99.99% 可用性」目標,導致告警疲勞、發布遲滯、
@@ -354,7 +354,7 @@ cases:
   title: PingPay 跨境轉帳 TLS 憑證事故
   domain: fin
   chapters:
-  - ch-28
+  - ch-29
   summary: |
     PingPay 是一家虛構的跨境即時轉帳金融科技公司。
     2025 年某深夜,第三方清算商 ClearPay 的 TLS 憑證到期,
@@ -366,7 +366,7 @@ cases:
   title: NovaDeskAI 彈性表單 EAV Schema 判斷案例
   domain: sas
   chapters:
-  - ch-45
+  - ch-46
   summary: |
     NovaDeskAI 是一家多租戶 SaaS 公司。新人工程師小霖使用 AI 助手為彈性表單功能
     設計了 EAV(Entity-Attribute-Value)架構的 schema,功能在小資料下運作正常,
@@ -377,7 +377,7 @@ cases:
   title: Sealflow 計費帳單差異事件
   domain: sas
   chapters:
-  - ch-46
+  - ch-47
   summary: |
     多租戶 SaaS 公司 Sealflow 的計費模組出現帳單差異問題:
     某些企業租戶的月度用量累計值與帳單金額不符。
@@ -389,7 +389,7 @@ cases:
   title: MedLink EMR legacy 系統接手
   domain: hcr
   chapters:
-  - ch-44
+  - ch-45
   summary: |
     MedLink 是一家虛構的醫療 SaaS 公司,提供電子病歷(EMR)服務給約四十家小型診所。
     其核心 EMR 系統以 PHP 5.6 寫成,運行七年,無自動化測試,人工回歸需兩週。
@@ -402,7 +402,7 @@ cases:
   title: Clearflow 跨境支付 DDL 鎖阻斷事故
   domain: fin
   chapters:
-  - ch-43
+  - ch-44
   summary: |
     Clearflow 是一間台北/新加坡雙中心的跨境匯款 Fintech 新創。
     2026 年 3 月,工程師 Priya 在生產環境對 3,800 萬筆記錄的 payments 資料表
@@ -416,7 +416,7 @@ cases:
   title: Velopay 跨境匯款手續費計算服務 float64 精度事件
   domain: fin
   chapters:
-  - ch-37
+  - ch-38
   summary: |
     虛構 fintech 公司 Velopay 的工程師小林,將 AI 生成的手續費計算服務
     提交 PR。程式碼邏輯正確、單元測試全過,但使用 float64 進行幣別換算,
@@ -429,7 +429,7 @@ cases:
   title: ClearTrade 客戶自動轉帳合規驗證時區事件
   domain: fin
   chapters:
-  - ch-41
+  - ch-42
   summary: |
     線上券商 ClearTrade 在實作「單日累計轉帳超過 TWD 500,000 需補充身份驗證」功能時,
     工程師使用 AI 輔助生成了合規邏輯,但未針對「單日」定義的時區邊界進行業務正確性判斷。
@@ -455,7 +455,7 @@ cases:
   title: Cartify 電商結帳服務 CI 流水線重設計
   domain: ecm
   chapters:
-  - ch-15
+  - ch-16
   summary: |-
     Cartify 是一家中型電商平台,其結帳服務(checkout-service)的 CI 流水線將
     單元、整合、E2E 測試全部排成一條線,導致每次跑需 25–30 分鐘。加上兩支
@@ -466,7 +466,7 @@ cases:
   title: FlowBill 訂閱 API 跨團隊介面契約事件
   domain: sas
   chapters:
-  - ch-19
+  - ch-20
   summary: |-
     FlowBill 是一家多租戶 SaaS 計費公司(虛構)。帳務團隊與核心平台團隊
     各自維護不同模組,帳務團隊在未通知消費方的情況下重命名 API 回傳欄位
@@ -477,7 +477,7 @@ cases:
   title: Cartly 電商訂單系統 CI/CD 重建
   domain: ecm
   chapters:
-  - ch-20
+  - ch-21
   summary: |-
     Cartly 是一家中型 B2C 電商公司,訂單系統旺季流量約為平日五倍。
     改善前,部署流程依賴單一 DevOps 工程師阿明的手動操作,知識未流程化。
@@ -488,7 +488,7 @@ cases:
   title: Cloudhive 計費儀表板 v2 漸進式發布
   domain: sas
   chapters:
-  - ch-21
+  - ch-22
   summary: |-
     Cloudhive 為 SaaS 專案管理工具,計畫將計費儀表板從靜態帳單頁面
     改為即時用量顯示的新版本。工程師使用發布旗標讓程式碼先上線、旗標
@@ -500,7 +500,7 @@ cases:
   title: Clearflow 帳單計算改版 / 匯率格式遷移事件
   domain: fin
   chapters:
-  - ch-23
+  - ch-24
   summary: |-
     Clearflow 支付公司推出帳單計算邏輯改版,將匯率資料的 JSON 格式從 flat 結構改為 nested 結構。
     部署後二十分鐘,約 3% 的交易讀取匯率資料失敗。
@@ -512,7 +512,7 @@ cases:
   title: ClearPay 支付閘道可觀測性改善
   domain: fin
   chapters:
-  - ch-25
+  - ch-26
   summary: |-
     ClearPay 是一家虛構的台灣支付公司。其支付閘道服務因缺乏結構化日誌、
     關聯 ID 與業務層 Metric,在一次清算 API 逾時配置異常事故中花費近兩小時
@@ -523,7 +523,7 @@ cases:
   title: 捷灃支付核心清算服務災難復原演練
   domain: fin
   chapters:
-  - ch-30
+  - ch-31
   summary: |-
     虛構的台灣本土支付公司「捷灃支付」,在一次生產資料庫故障後發現備份從未被
     實際驗證。事故後三週,工程師小雯帶團隊完成第一次遊戲日演練,發現 Runbook
@@ -533,7 +533,7 @@ cases:
   title: FlashMart 雙十二大促結帳服務容量規劃
   domain: ecm
   chapters:
-  - ch-35
+  - ch-36
   summary: |-
     虛構電商平台 FlashMart,日常 TPS 約 180,大促整點開搶瞬間峰值達 12 倍(2,160 TPS)。
     前一年大促因未針對脈衝式流量做容量規劃,導致第十五分鐘 PostgreSQL 連線池耗盡、
@@ -544,7 +544,7 @@ cases:
   title: CloudPost PR 摘要 Prompt 工程化
   domain: sas
   chapters:
-  - ch-40
+  - ch-41
   summary: |-
     CloudPost 是一家 30 人工程團隊的雲端文件協作 SaaS 公司。
     Tech Lead 秀敏帶領團隊將 PR 摘要生成 prompt 正式版控,
@@ -554,7 +554,7 @@ cases:
   title: Stafflink 批次駁回員工申請
   domain: sas
   chapters:
-  - ch-42
+  - ch-43
   summary: |-
     Stafflink 是一家虛構的人資 SaaS 公司。第 42 章以其「員工審核模組」的
     「部門主管批次駁回申請」功能為主線案例,示範從需求確認、測試骨架、

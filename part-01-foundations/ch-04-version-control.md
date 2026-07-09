@@ -13,7 +13,7 @@ word_count_target: 5500
 ## ⸺ 分支開得越多,不代表合作得越好
 
 > **前置閱讀**:[第 3 章｜開發環境與本機工作流](./ch-03-dev-environment.md)
-> **下游章節**:[第 5 章｜可讀性:為下一個人而寫](../part-02-craft/ch-05-readability.md)、[第 16 章｜Code Review:看什麼、怎麼給回饋](../part-04-collaboration/ch-16-code-review.md)
+> **下游章節**:[第 6 章｜可讀性:為下一個人而寫](../part-02-craft/ch-06-readability.md)、[第 17 章｜Code Review:看什麼、怎麼給回饋](../part-04-collaboration/ch-17-code-review.md)
 
 ---
 
@@ -158,7 +158,7 @@ git add -p
 
 原子提交有一個最直接的好處:它讓 `git bisect` 和 `git revert` 都變得可信。當你需要找「哪個 commit 引入了這個 bug」或者「撤掉那個功能」的時候,原子的歷史讓你一步到位;混沌的歷史讓你無從下手。佳捷商城的工程師那個週末花了幾個小時在 git log 裡打轉,根本原因之一就是 commit 邊界模糊——每個 commit 裡都有多件事,翻到哪一條都說不清楚「這個 commit 的 revert 會影響什麼其他的東西」。
 
-原子提交也對 Code Review 有直接幫助。Reviewer 每次看一個邊界清晰的 commit,可以問「這件事做對了嗎?」;看一個混雜多件事的 commit,只能看「這些加總起來有沒有問題」——後者要困難得多,給出的回饋也通常更模糊。這個連結在[第 16 章｜Code Review](../part-04-collaboration/ch-16-code-review.md)裡會再深談。
+原子提交也對 Code Review 有直接幫助。Reviewer 每次看一個邊界清晰的 commit,可以問「這件事做對了嗎?」;看一個混雜多件事的 commit,只能看「這些加總起來有沒有問題」——後者要困難得多,給出的回饋也通常更模糊。這個連結在[第 17 章｜Code Review](../part-04-collaboration/ch-17-code-review.md)裡會再深談。
 
 ---
 
@@ -322,8 +322,8 @@ git add -p
 ## Cross-References
 
 - **上一章**:[第 3 章｜開發環境與本機工作流](./ch-03-dev-environment.md) ⸺ 本機環境設好,版控才能順暢接上
-- **下一章**:[第 5 章｜可讀性:為下一個人而寫](../part-02-craft/ch-05-readability.md) ⸺ commit 訊息寫好了,接下來看程式碼本身的可讀性
-- **強連結**:[第 16 章｜Code Review:看什麼、怎麼給回饋](../part-04-collaboration/ch-16-code-review.md) ⸺ PR 拆得好,review 才有辦法做好
-- **強連結**:[第 17 章｜Pull Request 的拆分與描述](../part-04-collaboration/ch-17-pull-request.md) ⸺ 原子提交和 PR 拆分是同一件事的兩個層級
-- **強連結**:[第 40 章｜Prompt 與 context 作為工程產物](../part-08-ai-era/ch-40-prompt-as-artifact.md) ⸺ AI 時代,prompt 也需要版控,觀念同源
+- **下一章**:[第 6 章｜可讀性:為下一個人而寫](../part-02-craft/ch-06-readability.md) ⸺ commit 訊息寫好了,接下來看程式碼本身的可讀性
+- **強連結**:[第 17 章｜Code Review:看什麼、怎麼給回饋](../part-04-collaboration/ch-17-code-review.md) ⸺ PR 拆得好,review 才有辦法做好
+- **強連結**:[第 18 章｜Pull Request 的拆分與描述](../part-04-collaboration/ch-18-pull-request.md) ⸺ 原子提交和 PR 拆分是同一件事的兩個層級
+- **強連結**:[第 41 章｜Prompt 與 context 作為工程產物](../part-08-ai-era/ch-41-prompt-as-artifact.md) ⸺ AI 時代,prompt 也需要版控,觀念同源
 - **跨書連結**:[SA/SD Playbook](https://github.com/EddyKuo/sa-sd-playbook) ⸺ 架構設計決定分支策略;例如 feature flag 的設計屬於系統設計層
